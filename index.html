@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="common/mui.css"/>
+    <script src="common/mui.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+    <style type="text/css">
+    	li{
+    		list-style: none;
+    		color: white;
+    		top: 80%;
+    		text-align: center;
+    		position: relative;
+    		/*animation: myLoad 5s infinite;
+    		-webkit-animation: myLoad 5s infinite;*/
+    	}
+    	/*@keyframes myLoad{
+    		f0%{opacity: 0.5;font-size: 100%;}
+    		50%{opacity: 1;font-size: 200%;}
+    		100%{opacity: 0.5;font-size: 100%;}
+    	}
+    	@-webkit-keyframes myLoad{
+    		0%{opacity: 0.5;font-size: 100%;}
+    		50%{opacity: 1;font-size: 200%;}
+    		100%{opacity: 0.5;font-size: 100%;}
+    	}
+       	*/
+    </style>
+</head>
+<body>
+	<div style="width: 100%;height: 100%;position: absolute;background-color: #2AC845;">
+		<li>加载中，请稍后</li>
+	</div>
+	<script type="text/javascript">
+	mui.plusReady(function(){
+		//是否要加载引导页
+		plus.navigator.closeSplashscreen();
+		if (plus.storage.getItem('lauchFlag')) {//nat confirm
+		//Debug nat
+//			var r = confirm('已经加载过了，是否重新加载引导页');
+//			
+//			if (r===true) {
+//				plus.storage.removeItem('lauchFlag');
+//			}
+		}		
+		if (plus.storage.getItem('lauchFlag')) {
+			plus.navigator.closeSplashscreen();
+			mui.openWindow({//nat open main
+					url:"login/login.html",
+					id:"login",
+					style:{
+						popGesture:'none',
+						top:0,
+						bottom:0,
+					}
+			})
+			
+		} else{
+			mui.openWindow({
+			url:"loading/loading.html",
+			id:"loading",
+			style:{
+				popGesture:'none'
+			}
+		  })
+		}
+		
+	});
+	</script>
+</body>
+</html>

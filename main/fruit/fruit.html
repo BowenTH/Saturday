@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../common/mui.css"/>
+		<script src="../../common/mui.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="fruit.css"/>
+	</head>
+	<body>	
+		<!--顶栏，返回和搜索-->
+		<span class="mui-content-padded mui-icon mui-icon-back mui-action-back"></span>
+		<input type="text" class="mui-input-clear" placeholder="搜索"
+			style="width: 70%;border-radius: 50px;margin-top: 5px;"/>	
+
+		<!--商家轮播-->
+		<div id="slider" class="mui-slider" style="height: 200px;">
+		  <div class="mui-slider-group mui-slider-loop">
+		    <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+		    <div class="mui-slider-item mui-slider-item-duplicate">
+		      <a href="#">
+		        <img src="../../img/s3.jpg">
+		      </a>
+		    </div>
+		    <!-- 第一张 -->
+		    <div id="listA1" class="mui-slider-item">
+		      <a href="#">
+		        <img src="../../img/s0.jpeg">
+		      </a>
+		    </div>
+		    <!-- 第二张 -->
+		    <div id='listA2' class="mui-slider-item show">
+		      <a href="#">
+		        <img src="../../img/s3.jpg">
+		      </a>
+		    </div>
+		    <!-- 第三张 -->
+		    <div class="mui-slider-item">
+		      <a href="#">
+		        <img src="../../img/s1.jpg">
+		      </a>
+		    </div>
+		    <!-- 第四张 -->
+		    <div class="mui-slider-item">
+		      <a href="#">
+		        <img src="../../img/s2.jpg">
+		      </a>
+		    </div>
+		    <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+		    <div class="mui-slider-item mui-slider-item-duplicate">
+		      <a href="#">
+		        <img src="../../img/s0.jpeg">
+		      </a>
+		    </div>
+		  </div>
+		  <div class="mui-slider-indicator">
+		    <div class="mui-indicator mui-active"></div>
+		    <div class="mui-indicator"></div>
+		    <div class="mui-indicator"></div>
+		    <div class="mui-indicator"></div>
+		  </div>
+		</div>
+		
+			
+		<!--商家卡片列表-->		
+		<div class="fd" style="border-top:0px solid gray;margin-top: 5px;background-color: white;">
+			<span style="font-size: 70%;" class="mui-content-padded">附件商家</span>
+			<hr />
+			<div id="list1" class="listfd">
+				<img src="../../img/s0.jpeg" style="width: 50px;height: 30px;"/>
+				<span style="font-size: 90%;">每食每刻<span style="font-size: 70%;">位置:-list1</span></span>
+			</div>	
+			<hr />
+			<div id="list2" class="listfd" >
+				<img src="../../img/s3.jpg" style="width: 50px;height: 30px;"/>
+				<span style="font-size: 90%;">韩食馆<span style="font-size: 70%;">位置:-list2</span></span>
+					<div class="mui-numbox"  >
+						<button class="mui-btn mui-btn-numbox-minus"  type="button">-</button>
+						<input class="mui-input-numbox" type="number"id="countInput">
+						<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+					</div>
+			</div>	
+			<hr />
+			<div id="list4" class="listfd" >
+				<!--<img src="../../img/s1.jpg" style="width: 50px;height: 30px;"/>
+				<span style="font-size: 90%;">优乐美<span style="font-size: 70%;">位置:-</span></span>-->
+				服务器获取商户
+				<img src="../../img/s1.jpg" style="width: 50px;height: 30px;"/>
+			</div>	
+			<hr />
+			<div id="userx" class="listfd" >
+				<!--<img src="../../img/s1.jpg" style="width: 50px;height: 30px;"/>
+				<span style="font-size: 90%;">优乐美<span style="font-size: 70%;">位置:-</span></span>-->
+				商家上传信息入口
+				<img src="../../img/s1.jpg" style="width: 50px;height: 30px;"/>
+			</div>	
+			<hr />
+		</div>
+		
+		<!--结账啦--> 
+		<div class="mui-numbox"  >
+			<button class="mui-btn mui-btn-numbox-minus"  type="button">-</button>
+			<input class="mui-input-numbox" type="number"id="countInput">
+			<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+		</div>
+			<button id='flush' type="button" class="mui-btn mui-btn-green mui-btn-outlined">刷新</button>
+			
+		<div class="mui-input-row">
+		    <label>总额</label>
+		    <input id="sum" type="text" placeholder="0.0" value="">
+		</div>
+		
+		<button id="go" type="button" class="mui-btn mui-btn-green">结账</button>
+		<script src="fruit.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../common/av.js" type="text/javascript" charset="utf-8"></script>
+		
+		
+	</body>
+</html>

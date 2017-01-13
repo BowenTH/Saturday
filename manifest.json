@@ -1,0 +1,245 @@
+{
+	"id": "H5824FA93",
+	"name": "saturday",
+	"version": {
+		"name": "2.0",
+		"code": "83"
+	},
+	"description": "",
+	"icons": {
+		"72": "icon.png"
+	},
+	"launch_path": "index.html",
+	"developer": {
+		"name": "1578779013@qq.com",
+		"email": "1578779013@qq.com",
+		"url": "http:\/\/www.dcloud.io"
+	},
+	"permissions": {
+		"Accelerometer": {
+			"description": "访问加速度感应器"
+		},
+		
+		"Cache": {
+			"description": "管理应用缓存"
+		},
+		
+		"Console": {
+			"description": "跟踪调试输出日志"
+		},
+		
+		"Device": {},
+		"Downloader": {
+			"description": "文件下载管理"
+		},
+		"Events": {
+			"description": "应用扩展事件"
+		},
+		"File": {
+			"description": "访问本地文件系统"
+		},
+		"Gallery": {
+			"description": "访问系统相册"
+		},
+		"Geolocation": {},
+		"Invocation": {
+			"description": "使用Native.js能力"
+		},
+		"Orientation": {
+			"description": "访问方向感应器"
+		},
+		"Proximity": {
+			"description": "访问距离感应器"
+		},
+		"Storage": {
+			"description": "管理应用本地数据"
+		},
+		"Uploader": {
+			"description": "管理文件上传任务"
+		},
+		"Runtime": {
+			"description": "访问运行期环境"
+		},
+		"XMLHttpRequest": {
+			"description": "跨域网络访问"
+		},
+		"Zip": {
+			"description": "文件压缩与解压缩"
+		},
+		
+		"Maps": {},
+		"Speech": {},
+		"Webview": {
+			"description": "窗口管理"
+		},
+		"NativeUI": {
+			"description": "原生UI控件"
+		},
+		"Navigator": {
+			"description": "浏览器信息"
+		},
+		"NativeObj": {
+			"description": "原生对象"
+		},
+		"Payment": {}
+	},
+	"plus": {
+		"distribute": {"splashscreen":{"android":{}},"icons":{"ios":{"iphone":{"retina":"unpackage/res/icons/114x114.png","normal":"unpackage/res/icons/57x57.png","retina8":"unpackage/res/icons/180x180.png","retina7":"unpackage/res/icons/120x120.png","settings-retina":"unpackage/res/icons/58x58.png","settings-normal":"unpackage/res/icons/29x29.png","spotlight-retina":"unpackage/res/icons/58x58.png","spotlight-normal":"unpackage/res/icons/29x29.png","settings-retina8":"unpackage/res/icons/87x87.png","spotlight-retina7":"unpackage/res/icons/80x80.png"},"ipad":{"retina":"unpackage/res/icons/144x144.png","normal":"unpackage/res/icons/72x72.png","retina7":"unpackage/res/icons/152x152.png","normal7":"unpackage/res/icons/76x76.png","settings-retina":"unpackage/res/icons/58x58.png","settings-normal":"unpackage/res/icons/29x29.png","spotlight-retina":"unpackage/res/icons/100x100.png","spotlight-normal":"unpackage/res/icons/50x50.png","spotlight-normal7":"unpackage/res/icons/40x40.png","spotlight-retina7":"unpackage/res/icons/80x80.png"}},"android":{"ldpi":"unpackage/res/icons/48x48.png","mdpi":"unpackage/res/icons/48x48.png","hdpi":"unpackage/res/icons/72x72.png","xhdpi":"unpackage/res/icons/96x96.png","xxhdpi":"unpackage/res/icons/144x144.png"}},
+			"plugins": {
+				"payment": {
+					"alipay": {
+						"description": "阿里支付",
+						"scheme": ""
+					},
+					"weixin": {
+						"description": "微信支付",
+						"appid": "wxa5e2f750c10399a8"
+					}
+				}
+			},
+			"google": {
+				"permissions": ["<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>","<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>","<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>","<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>","<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>","<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>","<uses-permission android:name=\"android.permission.VIBRATE\"/>","<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>","<uses-permission android:name=\"android.permission.READ_LOGS\"/>","<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>","<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>","<uses-permission android:name=\"android.permission.CALL_PHONE\"/>","<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>","<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>"]
+			},"debug":false
+		},
+		"splashscreen": {
+			"autoclose": false,
+			"waiting": true
+		},
+		"runmode": "liberate",
+		"signature": "Sk9JTiBVUyBtYWlsdG86aHIyMDEzQGRjbG91ZC5pbw=="
+	},
+	"dependencies": {
+		"pages": {
+			"index.html": {
+				"resources": [
+					"common/mui.js",
+					"common/mui.css"
+				],
+				"refer": [
+					"loading/loading.html",
+					"login/login.html"
+				],
+				"priority": 0
+			},
+			"login/login.html": {
+				"resources": [
+					"login/login.js",
+					"common/fonts/mui.ttf",
+					"login/login.css",
+					"login/av.js",
+					"common/mui.js",
+					"common/mui.css",
+					"common/av.js"
+				],
+				"refer": [
+					"index/index.html"
+				],
+				"priority": 0
+			},
+			"loading/loading.html": {
+				"resources": [],
+				"refer": [
+					"login/login.html"
+				],
+				"priority": 0
+			},
+			"main/location/location.html": {
+				"resources": [
+					"main/location/location.js",
+					"common/mui.js",
+					"common/mui.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"main/main.html": {
+				"resources": [
+					"img/1.png",
+					"common/fonts/mui.ttf",
+					"common/mui.js",
+					"common/mui.css",
+					"main/main.css",
+					"main/main.js",
+					"img/load1.png",
+					"img/0.jpg"
+				],
+				"refer": [
+					"main/location/location.html",
+					"main/fruit/fruit.html",
+					"main/setting/setting.html"
+				],
+				"priority": 0
+			},
+			"index/index.html": {
+				"resources": [
+					"index/index.js",
+					"main/main.html",
+					"common/fonts/mui.ttf",
+					"common/mui.js",
+					"common/mui.css"
+				],
+				"refer": [
+					"list/list.html"
+				],
+				"priority": 0
+			},
+			"main/fruit/fruit.html": {
+				"resources": [
+					"img/s2.jpg",
+					"main/fruit/fruit.css",
+					"img/s1.jpg",
+					"img/s3.jpg",
+					"img/s0.jpeg",
+					"main/fruit/fruit.js",
+					"common/fonts/mui.ttf",
+					"common/mui.js",
+					"common/mui.css",
+					"common/av.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"list/list.html": {
+				"resources": [
+					"common/fonts/mui.ttf",
+					"common/mui.js",
+					"common/mui.css",
+					"img/9.jpg"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"main/setting/setting.html": {
+				"resources": [
+					"main/setting/js/mui.view.js",
+					"main/setting/css/feedback.css",
+					"main/setting/js/feedback.js",
+					"common/mui.css",
+					"common/fonts/mui.ttf",
+					"common/mui.js",
+					"main/setting/img/logo.png"
+				],
+				"refer": [],
+				"priority": 0
+			}
+		},
+		"idle": {
+			"resources": [
+				"img/as.png",
+				"img/load1.jpg",
+				"img/load3.jpg",
+				"img/load2.jpg",
+				"loading/loading.css",
+				"img/load4.jpg"
+			]
+		}
+	},
+	"unpackage":[
+	  "img/as.png",
+	  "img/load1.jpg",
+	  "img/load2.jpg",
+	  "img/load3.jpg",
+	  "img/load4.jpg",
+	  "loading/loading.css"
+	]
+}

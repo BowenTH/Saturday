@@ -1,0 +1,115 @@
+{
+  "index.html": {
+    "resources": [
+      "common/mui.js",
+      "common/mui.css"
+    ],
+    "refer": [
+      "loading/loading.html",
+      "login/login.html"
+    ]
+  },
+  "login/login.html": {
+    "resources": [
+      "login/login.js",
+      "common/fonts/mui.ttf",
+      "login/login.css",
+      "login/av.js",
+      "common/mui.js",
+      "common/mui.css",
+      "common/av.js"
+    ],
+    "refer": [
+      "index/index.html"
+    ]
+  },
+  "loading/loading.html": {
+    "refer": [
+      "login/login.html"
+    ],
+    "resources": []
+  },
+  "main/location/location.html": {
+    "resources": [
+      "main/location/location.js",
+      "common/mui.js",
+      "common/mui.css"
+    ],
+    "refer": []
+  },
+  "main/main.html": {
+    "resources": [
+      "img/1.png",
+      "common/fonts/mui.ttf",
+      "common/mui.js",
+      "common/mui.css",
+      "main/main.css",
+      "main/main.js",
+      "img/load1.png",
+      "img/0.jpg"
+    ],
+    "refer": [
+      "main/location/location.html",
+      "main/fruit/fruit.html",
+      "main/setting/setting.html"
+    ]
+  },
+  "index/index.html": {
+    "resources": [
+      "index/index.js",
+      "main/main.html",
+      "common/fonts/mui.ttf",
+      "common/mui.js",
+      "common/mui.css"
+    ],
+    "refer": [
+      "list/list.html",
+      "main/main.html"
+    ]
+  },
+  "main/fruit/fruit.html": {
+    "resources": [
+      "img/s2.jpg",
+      "main/fruit/fruit.css",
+      "img/s1.jpg",
+      "img/s3.jpg",
+      "img/s0.jpeg",
+      "main/fruit/fruit.js",
+      "common/fonts/mui.ttf",
+      "common/mui.js",
+      "common/mui.css",
+      "common/av.js"
+    ],
+    "refer": [
+      "main/fruit/show/show.html"
+    ]
+  },
+  "main/fruit/show/show.html": {
+    "resources": [
+      "common/fonts/mui.ttf",
+      "common/mui.js",
+      "common/mui.css",
+      "main/fruit/show/show.js"
+    ],
+    "refer": []
+  },
+  "list/list.html": {
+    "resources": [
+      "common/fonts/mui.ttf",
+      "common/mui.js",
+      "common/mui.css",
+      "img/9.jpg"
+    ]
+  },
+  "main/setting/setting.html": {
+    "resources": [
+      "main/setting/js/mui.view.js",
+      "main/setting/css/feedback.css",
+      "main/setting/js/feedback.js",
+      "common/mui.css",
+      "common/fonts/mui.ttf",
+      "common/mui.js",
+      "main/setting/img/logo.png"
+    ]
+  }
+}
