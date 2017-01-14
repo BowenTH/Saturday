@@ -9,7 +9,7 @@
 	"icons": {
 		"72": "icon.png"
 	},
-	"launch_path": "index.html",
+	"launch_path": "index/index.html",
 	"developer": {
 		"name": "1578779013@qq.com",
 		"email": "1578779013@qq.com",
@@ -166,7 +166,8 @@
 				"refer": [
 					"main/location/location.html",
 					"main/fruit/fruit.html",
-					"main/setting/setting.html"
+					"main/setting/setting.html",
+					"main/fruit/fruit-header.html"
 				],
 				"priority": 0
 			},
@@ -176,11 +177,11 @@
 					"main/main.html",
 					"common/fonts/mui.ttf",
 					"common/mui.js",
-					"common/mui.css"
-				],
-				"refer": [
+					"common/mui.css",
+					"main/mainhead.html",
 					"list/list.html"
 				],
+				"refer": [],
 				"priority": 0
 			},
 			"main/fruit/fruit.html": {
@@ -204,7 +205,8 @@
 					"common/fonts/mui.ttf",
 					"common/mui.js",
 					"common/mui.css",
-					"img/9.jpg"
+					"img/9.jpg",
+					"img/0.jpg"
 				],
 				"refer": [],
 				"priority": 0
@@ -218,6 +220,24 @@
 					"common/fonts/mui.ttf",
 					"common/mui.js",
 					"main/setting/img/logo.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"main/mainhead.html": {
+				"resources": [
+					"common/mui.js",
+					"common/mui.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"main/fruit/fruit-header.html": {
+				"resources": [
+					"common/fonts/mui.ttf",
+					"common/mui.js",
+					"common/mui.css",
+					"main/fruit/fruit.html"
 				],
 				"refer": [],
 				"priority": 0

@@ -1,7 +1,8 @@
 mui.init();
 var sum=0;
 
-document.getElementById('list2').addEventListener('tap',function(){	
+/*调试总额显示*/
+/*document.getElementById('list2').addEventListener('tap',function(){	
 //	var count = document.getElementById('countInput').value;
 	var count = document.getElementById('list2').getElementsByTagName('input')[0].value;
 	//alert(count);
@@ -23,19 +24,17 @@ document.getElementById('list2').addEventListener('tap',function(){
 	sum=12*count;
 	document.getElementById('sum').setAttribute('value',sum);
 });
+*/
 //商家地理位置
-//0.flush !!!!!!!!!!!
-document.getElementById('flush').addEventListener('tap',function(){
-	listFood(userList);
-});
+
 var userList=[];
 var addFlag=0;
 //1.新增商户(上传)
-document.getElementById('list4').addEventListener('tap',addSall);
-document.getElementById('userx').addEventListener('tap',addUser); 
+
+document.getElementById('userx').addEventListener('tap',addUser); //服务器添加用户
 
 function addUser(){//服务器添加用户
-	alert('go'+localStorage.getItem('username'));
+//	alert('go'+localStorage.getItem('username'));
 	var Query=new AV.Query("TESTsall");
 	var Flag=0;
 	Query.equalTo('username',localStorage.getItem('username'));	
@@ -69,17 +68,17 @@ function addUser(){//服务器添加用户
 				    alert(JSON.stringify(error));
 				});
 		}
-	},2000);
+	},1000);
 
 }
 function addSall(){
-	alert('开始上传');
+//	alert('开始上传');
 	getShop(userList);
 }
 
 //2.下载用户信息
 function getShop(userList){
-	alert('正在查询');
+//	alert('正在查询');
 	var name,address;	
 	var Query=new AV.Query("TESTsall");
 //	Query.equalTo('username','nat');
@@ -104,6 +103,11 @@ function getShop(userList){
 			alert("error"+error.message);
 		}
 	});
+	
+	setTimeout(function(){
+//		alert('点了刷新了');
+		listFood(userList);		
+	},1000);
 }
 
 /*3.商品上传格式*/
@@ -125,18 +129,24 @@ function listFood(shopList){
 	
 }
 function fdModel(li,data){
-	li.innerHTML='<img src="../../img/s2.jpg" style="height: 50px;width: 60px;"/>'
-	+data.name+data.address+'<div class="mui-numbox" id='+data.name+'><button class="mui-btn mui-btn-numbox-minus"  type="button">-</button><input class="mui-input-numbox" type="number"id="countInput"><button class="mui-btn mui-btn-numbox-plus" type="button">+</button></div>'+'<hr/>';
+	li.innerHTML='<div id="list2" class="listfd">'+'<img src="../../img/s2.jpg" style="height: 40px;width: 50px;"/>'
+	+'<h5 style="" class="shopname">'+data.name+'</h5>'+
+			'<h5 class="content" style="padding: 0px;margin-left:53px;margin-top: -30px;"><span class="contentx" style="font-size: 70%;">位置:'+data.address+'</span></h5>'
+			+'<h6 style="margin-left: 5px;" class="jiancontent">新用户立减5元<span class="longcontent">距离:1000m</span></h6>'
+			+'<h6 style="margin-left: 5px;" class="fullcontent">满30立减5元</h6>'
+		+'<hr/>'+'</div>';
 	
 }
 
-
-
+/*左划返回*/
+document.getElementsByClassName('mui-media-body')[0].addEventListener('swipeleft',function(){
+	mui.back();
+})
 /* 支付宝支付引用  */
 var channel =null;
 function plusReady(){
 	document.getElementById('go').addEventListener('tap',function(){
-	var count = document.getElementById('sum').value;
+	//var count = document.getElementById('sum').value;
 	mui.toast('未结算金额:'+sum);
 	
 	plus.payment.getChannels(function(channels){
@@ -144,8 +154,8 @@ function plusReady(){
 	},function(e){
 		alert('获取支付通道失败:'+e.message);
 	});
-	//pay('alipay');
-	pay('weixin');
+	pay('alipay');
+//	pay('weixin');
 })
 }
 document.addEventListener('plusready',plusReady,false);
@@ -160,7 +170,7 @@ function pay(id){
  var PAYSERVER='';
     if(id=='alipay'){
         PAYSERVER=ALLPAYSERVER;
-        alert('发起支付请求')
+//      alert('发起支付请求')
     }else if(id=='weixin'){
     	alert('微信支付哟');
         PAYSERVER=WXPAYSERVER;
@@ -170,7 +180,7 @@ function pay(id){
     }
     var xhr=new XMLHttpRequest();
     xhr.onreadystatechange=function(){
-    	alert('判断');
+//  	alert('判断');
         switch(xhr.readyState){
             case 4:
             if(xhr.status==200){
