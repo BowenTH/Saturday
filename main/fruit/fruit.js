@@ -139,8 +139,13 @@ function fdModel(li,data){
 }
 
 /*左划返回*/
-document.getElementsByClassName('mui-media-body')[0].addEventListener('swipeleft',function(){
-	mui.back();
+//在android4.4.2中的swipe事件，需要preventDefault一下，否则触发不正常
+
+document.addEventListener('swipeleft',function(e){
+
+	if(Math.abs(e.detail.angle)-90<45)
+		return;
+		mui.back();	
 })
 /* 支付宝支付引用  */
 var channel =null;

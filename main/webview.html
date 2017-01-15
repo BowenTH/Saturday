@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../common/mui.css"/>
+		<script src="../common/mui.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			span{color: white;}
+			h5{
+				font-size: 110%;
+			}
+		</style>
+	</head>
+	<body style="background: black;">
+		<div id="">
+			<div id="sign" class="mui-content-padded">
+				<img src="../img/load1.png" style="width: 60px;height: 60px; border-radius: 50%;"/>
+				<span id="">
+					NAT
+				</span>
+				<span>					
+					
+					
+				</span>
+			</div>
+				<button id="checkUp" type="button" class="mui-btn mui-btn-grey mui-btn-block">更新</button>
+				<button id="setting" type="button" class="mui-btn mui-btn-grey mui-btn-block">设置</button>
+		</div>
+		<script src="main.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+	<script type="text/javascript">
+		mui.init({
+			gestureConfig:{
+				tap:true,
+				swipe:true,
+				drag:false
+			}
+		});
+/*
+ 右滑关闭悬浮窗口,主要这里主页用的是开启首页，不然要加载id='main'的view窗口；
+ * */
+	mui.plusReady(function(){
+		document.addEventListener('swipeleft',function(){
+		mui.back();
+		var result=plus.webview.getLaunchWebview().setStyle({mask:'none'});
+		});			
+	});
+	
+	document.getElementById('sign').addEventListener('tap',setting);
+	document.getElementById('setting').addEventListener('tap',setting);
+	document.getElementById('checkUp').addEventListener('tap',upDating);
+	</script>
+</html>

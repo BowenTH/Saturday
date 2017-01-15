@@ -80,6 +80,7 @@ document.getElementById('check-login').addEventListener('tap',function(){
 //				mui.openWindow('../index/index.html')
 				mui.openWindow({
 				url:'../index/index.html',
+				id:'index.html',
 				styles: {
 	                    top: 10,
 	                    bottom: 10

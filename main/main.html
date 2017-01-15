@@ -9,9 +9,9 @@
 	</head>
 	<body>
 		<!-- 侧滑导航根容器 -->
-<div class="mui-off-canvas-wrap mui-draggable">
+<!-- <div class="mui-off-canvas-wrap mui-draggable">
   <!-- 主页面容器 -->
-  <div class="mui-inner-wrap">
+ <div class="mui-inner-wrap">
      <!-- 菜单容器 -->
     <aside class="mui-off-canvas-left">
       <div class="mui-scroll-wrapper">
@@ -29,12 +29,14 @@
         </div>
       </div>
     </aside>
-    </header>
-    <!-- 主页面标题 -->
+    </header>-->
+    
+    
+    <!--<!-- 主页面标题 -->
     <!-- 主页面内容容器 -->
     <div class="mui-content mui-scroll-wrapper" >
       <div class="mui-scroll">
-        <!-- 主界面具体展示内容 --> 			  
+        <!-- 主界面具体展示内容 --> 
 		    <!--<div class="mui-bar-nav" style="height: 50px;">
 				<span id='' class="mui-icon mui-icon-bars" style="margin: 6px;"></span>
 				<input style="width: 40%;float:right" type="search" name="xx" required="" placeholder="Search" x-webkit-speech="" x-webkit-grammar="builtin:search" lang="zh-CN">
@@ -81,43 +83,39 @@
 			    </a>
 			</li>
 		</ul>
-  </div>
-	</div>
+  <!--</div>
+	</div>-->
 		
 	
-	<script type="text/javascript">
-		mui.init();
-		
+	<script type="text/javascript">		
+	mui.plusReady(function(){		
+//		var wc=plus.webview.create('fruit/fruit-header.html','fruit-header');
 		document.getElementById('fruit').addEventListener('tap',function(){
-			//plus.navigator.closeSplashscreen();
-			mui.openWindow({
-				url:"fruit/fruit-header.html",
-				id:"fruit",
-				style:{
-					popGesture:'none'
-				},
-				show:{
-				aniShow:'slide-i n-right',
-				duration:'400'}
-				
-			})
+			plus.webview.getWebviewById('fruit-header.html').show('slide-in-left',400);
 		});
-		
 		document.getElementById('location').addEventListener('tap',function(){
-			mui.openWindow({
-				url:"location/location.html",
-				id:"location",
-				style:{
-					popGesture:'none'
-				},show:{
-				aniShow:'pop-in',
-				duration:'400'}
-			})
+			plus.webview.getWebviewById('location.html').show('slide-in-left',400);
 		});
-		
-		
-		//!!!!!!!!!!!!!!!!!!!!!!!!
-		mui.init({
+	});
+	mui.init({preloadPages:[{
+				url:'fruit/fruit-header.html',
+				id:'fruit-header.html',
+				subpages:[{
+					url:'fruit/fruit.html',
+					id:'fruit.html',
+					styles:{
+						top:'45px',
+						bottom:0}
+				}]},{url:'location/location.html',
+					id:'location.html'
+				},{	url:'webview.html',
+					id:'webview.html',
+					styles:{
+						width:'80%'
+					},show:{
+						duration:600
+					}
+				}],
 				pullRefresh: {
 					container: '#pullrefresh',
 					down: {
@@ -187,6 +185,26 @@
 //					mui('#pullrefresh').pullRefresh().pullupLoading();
 //				});
 //			}
+	/**为了main.js文件调用方便，把部分js操作放到这了**/
+	mui.back=function(){};
+	
+	/*
+	 	更新侧滑栏
+	 * */
+	if (window.plus) {
+		plusReady();
+	}else{
+		document.addEventListener('plusready',plusReady,false);
+	}
+	function plusReady(){	
+		document.addEventListener('swiperight',function(){
+			var mainView=plus.webview.getLaunchWebview();
+			var wd=plus.webview.getWebviewById('webview.html');
+			wd.show("slide-in-left",200);		
+			mainView.setStyle({mask:"rgba(0,0,0,0.8)"});
+		});
+	};
+
 	</script>
 	<script src="main.js" type="text/javascript" charset="utf-8"></script>
 	</body>

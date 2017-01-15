@@ -1,18 +1,17 @@
-mui.init();
-mui.back=function(){};
+
 /*显示或是关闭侧滑栏*/
-document.getElementById('closList').addEventListener('tap',function(){
-	mui('.mui-off-canvas-wrap').offCanvas().toggle();
-	
-});
+//document.getElementById('closList').addEventListener('tap',function(){
+//	mui('.mui-off-canvas-wrap').offCanvas().toggle();
+//	
+//});
 function setting(){
 	mui.openWindow({
 		url:'setting/setting.html',
 	})
 }
-document.getElementById('sign').addEventListener('tap',setting);
-document.getElementById('setting').addEventListener('tap',setting);
-document.getElementById('checkUp').addEventListener('tap',upDating);
+//document.getElementById('sign').addEventListener('tap',setting);
+//document.getElementById('setting').addEventListener('tap',setting);
+//document.getElementById('checkUp').addEventListener('tap',upDating);
 
 var checkUrl="http://demo.dcloud.net.cn/test/update/check.php";
 function upDating(){
@@ -99,5 +98,6 @@ function installWgt(path){
         plus.nativeUI.alert("安装wgt文件失败["+e.code+"]："+e.message);
     });
 }
+
 
 

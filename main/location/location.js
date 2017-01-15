@@ -48,8 +48,11 @@ function displayError(error){
 mui.plusReady(function(){
 	//获取位置
 	document.getElementById('loationbt').addEventListener('tap',function(){	
-	plus.geolocation.getCurrentPosition(displayLocation,displayError,option);	
-});
+		plus.geolocation.getCurrentPosition(displayLocation,displayError,option);	
+	});		
+	document.addEventListener('swipeleft',function(){
+		mui.back();
+	})
 });
 
 

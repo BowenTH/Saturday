@@ -149,7 +149,9 @@
 					"common/mui.js",
 					"common/mui.css"
 				],
-				"refer": [],
+				"refer": [
+					"main/location/webview.html"
+				],
 				"priority": 0
 			},
 			"main/main.html": {
@@ -167,7 +169,9 @@
 					"main/location/location.html",
 					"main/fruit/fruit.html",
 					"main/setting/setting.html",
-					"main/fruit/fruit-header.html"
+					"main/fruit/fruit-header.html",
+					"main/location/webview.html",
+					"main/webview.html"
 				],
 				"priority": 0
 			},
@@ -240,6 +244,28 @@
 					"main/fruit/fruit.html"
 				],
 				"refer": [],
+				"priority": 0
+			},
+			"main/location/webview.html": {
+				"resources": [
+					"common/mui.js",
+					"common/mui.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"main/webview.html": {
+				"resources": [
+					"common/mui.js",
+					"common/mui.css",
+					"main/fruit/fruit.html",
+					"img/load1.png",
+					"main/main.js"
+				],
+				"refer": [
+					"main/main.html",
+					"main/setting/setting.html"
+				],
 				"priority": 0
 			}
 		},
