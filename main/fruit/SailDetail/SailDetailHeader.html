@@ -11,9 +11,7 @@
 		</header>
 	</head>
 	<body>
-		<div class="mui-bar" style="padding-top: 15px; height: 50px;width: 100%; bottom: 0;background: gray;">
-			<span style="margin-top: 10px;color: white;">购物车是空的</span><span style="float: right;">20元起送</span>
-		</div>
+
 	</body>
 	<script type="text/javascript">
 		var shopName=null;
@@ -27,32 +25,31 @@
 					}]
 		});
 		mui.plusReady(function(){			
-			mui.back=function (){ plus.webview.currentWebview().hide();};
+			mui.back=function (){ 
+				plus.webview.currentWebview().hide();
+//				plus.webview.getWebviewById('foodMenu.html').hide();
+//				plus.webview.getWebviewById('appraise.html').hide();
+				localStorage.setItem('SailDetailBack','1');
+			};
 			window.addEventListener('ShopNamefire',function(event){				
 				shopName=event.detail.shopName;
 				mui('.mui-title')[0].innerHTML=shopName;
+//				console.log('loading show foodmenu');
+				plus.webview.getWebviewById('foodMenu.html').show();//!!!!!!很关键，首次加载商家详情页面，，初始化子页面
 			});	
 			/*添加两个子页面*/
 			var Cv=plus.webview.currentWebview();
 			var vlist=[{url:'foodMenu/foodMenu.html',id:'foodMenu.html'},
 			{url:'appraise/appraise.html',id:'appraise.html'}];
-			mui.toast("i===0?");
 			for(var i=0;i<vlist.length;i++){
 				if(plus.webview.getWebviewById(vlist[i]))continue;
 				var addv=plus.webview.create(vlist[i].url,vlist[i].id,{
 					top:'80px',
 					popGesture:'none'
 				});
-				if(i===0){
-					mui.toast("i===0");
-					addv.show();
-				}else{
-					addv.hide();
-				}
 				Cv.append(addv);
 				console.log(i+':'+vlist[i].id);
 			}
-			
 			
 		});
 	</script>

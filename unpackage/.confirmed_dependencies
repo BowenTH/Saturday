@@ -188,7 +188,16 @@
 		"resources": [
 			"common/fonts/mui.ttf",
 			"common/mui.js",
-			"common/mui.css"
+			"common/mui.css",
+			"img/load.png"
+		]
+	},
+	"main/fruit/SailDetail/foodMenu/foodMenu.html": {
+		"resources": [
+			"common/fonts/mui.ttf",
+			"common/mui.js",
+			"common/mui.css",
+			"img/s3.jpg"
 		]
 	}
 }
