@@ -89,7 +89,8 @@
 			"common/av.js"
 		],
 		"refer": [
-			"main/fruit/show/show.html"
+			"main/fruit/show/show.html",
+			"main/fruit/SailDetail/SailDetailHeader.html"
 		]
 	},
 	"main/fruit/show/show.html": {
@@ -155,6 +156,39 @@
 		"refer": [
 			"main/main.html",
 			"main/setting/setting.html"
+		]
+	},
+	"main/fruit/SailDetail/SailDetailHeader.html": {
+		"resources": [
+			"common/fonts/mui.ttf",
+			"common/mui.js",
+			"main/fruit/SailDetail/SailDetail.html",
+			"common/mui.css",
+			"main/fruit/SailDetail/foodMenu/foodMenu.html",
+			"main/fruit/SailDetail/appraise/appraise.html"
+		],
+		"refer": [
+			"main/fruit/SailDetail/SailDetail.html",
+			"main/fruit/SailDetail/foodMenu/foodMenu.html",
+			"main/fruit/SailDetail/appraise/appraise.html"
+		]
+	},
+	"main/fruit/SailDetail/SailDetail.html": {
+		"resources": [
+			"common/fonts/mui.ttf",
+			"common/mui.js",
+			"common/mui.css",
+			"main/fruit/SailDetail/SailDetail.js"
+		],
+		"refer": [
+			"main/fruit/SailDetail/appraise/appraise.html"
+		]
+	},
+	"main/fruit/SailDetail/appraise/appraise.html": {
+		"resources": [
+			"common/fonts/mui.ttf",
+			"common/mui.js",
+			"common/mui.css"
 		]
 	}
 }

@@ -1,5 +1,18 @@
-mui.init();
 var sum=0;
+mui.plusReady(function(){
+	plus.webview.create('SailDetail/SailDetailHeader.html','SailDetailHeader.html',{},{shopName:'zhangshan'});
+	mui('.mui-media-body').on('tap','.listfd',function(e){		
+		var goWeb=plus.webview.getWebviewById('SailDetailHeader.html');
+		var shopname=this.getElementsByClassName('shopname')[0].innerHTML;
+		var detailPage=null;
+		if(!detailPage){
+			detailPage=plus.webview.getWebviewById('SailDetailHeader.html');
+		}
+		mui.fire(detailPage,'ShopNamefire',{shopName:shopname});
+		goWeb.show();
+//		goWeb.show({shopName:shopname});
+	});
+});
 
 /*调试总额显示*/
 /*document.getElementById('list2').addEventListener('tap',function(){	
@@ -113,7 +126,7 @@ function getShop(userList){
 /*3.商品上传格式*/
 //var p = {name:"一叶扁舟",address:'22号'};
 function listFood(shopList){
-	var fdDiv = document.body.querySelector('.fd');
+	var fdDiv = document.body.querySelector('.mui-media-body');
 	var fdlist=document.body.querySelectorAll('.listfd');
 	
 
