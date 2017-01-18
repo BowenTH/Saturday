@@ -6,27 +6,59 @@
 		<link rel="stylesheet" type="text/css" href="../common/mui.css"/>
 		<script src="../common/mui.js" type="text/javascript" charset="utf-8"></script>
 		<style type="text/css">
-			span{color: white;}
+			*{color: white;}
 			h5{
 				font-size: 110%;
+			}
+			#movebackground{
+				width: 100%;
+				padding-top: -30px;
+				animation: movebackground 10s infinite;
+			}
+			@keyframes movebackground{
+				0%{
+					margin-top: -50px;
+							}
+				50%{margin-top: 0px;}
+				100%{margin-top: -50px;}
+			}
+			ul{
+				padding: 0;
+				margin: 0;
+			}
+			li{
+				padding: 15px;
+			}
+	
+			.upload-icon:before{
+				font-family: Muiicons;
+				content: '\e402';
+				font-size: 25px;
+				padding-right: 20px;
+			}
+			.set-icon:before{
+				font-family: Muiicons;
+				content: '\e502';
+				font-size: 25px;
+				padding-right: 20px;
 			}
 		</style>
 	</head>
 	<body style="background: black;">
-		<div id="">
-			<div id="sign" class="mui-content-padded">
-				<img src="../img/load1.png" style="width: 60px;height: 60px; border-radius: 50%;"/>
-				<span id="">
-					NAT
-				</span>
-				<span>					
-					
-					
-				</span>
-			</div>
-				<button id="checkUp" type="button" class="mui-btn mui-btn-grey mui-btn-block">更新</button>
-				<button id="setting" type="button" class="mui-btn mui-btn-grey mui-btn-block">设置</button>
+		<div id=""  >
+			<div id="sign" class=""style="overflow: hidden;width: 100%;height: 250px;">				
+				<img id="movebackground" src="../img/load.png"style="z-index: 100;"/>
+				<div id=""style="position: absolute;top: 50px;">
+					<img src="../img/load1.png" style="width: 60px;height: 60px; border-radius: 50%;"/>
+					<span id="">NAT</span>
+				</div>				
+			</div>			
+			<ul style="color: white;list-style: none;">
+				<li class="upload-icon" data-id ="update" id="checkUp">更新</li>
+				<li class="set-icon" data-id="setting" id="setting">设置</li>
+			</ul>
 		</div>
+		
 		<script src="main.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 	<script type="text/javascript">
@@ -41,14 +73,35 @@
  右滑关闭悬浮窗口,主要这里主页用的是开启首页，不然要加载id='main'的view窗口；
  * */
 	mui.plusReady(function(){
+		mui.back=function(){//方礼明提供
+			plus.webview.currentWebview().hide();
+			plus.webview.getLaunchWebview().setStyle({mask:'none'});
+		}
 		document.addEventListener('swipeleft',function(){
-		mui.back();
-		var result=plus.webview.getLaunchWebview().setStyle({mask:'none'});
+		mui.back();		
 		});			
 	});
-	
-	document.getElementById('sign').addEventListener('tap',setting);
-	document.getElementById('setting').addEventListener('tap',setting);
-	document.getElementById('checkUp').addEventListener('tap',upDating);
+	mui('ul').on('mousedown','li',function(){
+		this.style.background='grey';
+	});
+	mui('ul').on('mouseup','li',function(){
+		var downflag=this;
+		mui.later(function(){//选项按下，延时设置底色
+			downflag.style.background='black';
+			if(downflag.dataset.id=='update')
+			{					
+				upDating();
+				mui.later(function(){
+					mui.back();					
+				},500);				
+			}else if(downflag.dataset.id=='setting')
+			{					
+				setting();		
+				mui.later(function(){//延时关闭侧滑页
+					mui.back();					
+				},500);
+			}				
+		},200);
+	});
 	</script>
 </html>

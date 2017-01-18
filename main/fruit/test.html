@@ -3,9 +3,101 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		<script src="../../common/jquery.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
-		
-		xxxdfasdf
+		<div id="count">
+			<h5></h5><li>top</li><li>buttom</li>
+		</div>
+		<pre>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			x
+			
+			
+			xxxxxx
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			s
+			
+			
+			
+			x
+		</pre>
+		<h2>sss</h2>
+		<script type="text/javascript">
+			var i=0;
+			$(document).ready(function(){
+				$('#count').css('position','fixed');
+				var options={scroll:false};
+				
+				var height=$('h2').offset().top;//固定的高度
+				
+//				var totalh=document.documentElement.clientHeight;
+//				var height=$('h2').position().top;
+				$(window).scroll(function(){
+					var $me=$(this); 
+					var fixheight=$(this).height();//滚动条的高度
+					$('#count h5').text(i+=1);
+
+					if($me.scrollTop()+fixheight>height){
+						console.log($me.scrollTop()+$me.height()+":"+height);
+						//$me.scrollTop(0);
+						$('li:eq(0)').css('color','black');
+						$('li:eq(1)').css('color','red');
+					}else{
+						$('li:eq(0)').css('color','red');
+						$('li:eq(1)').css('color','black');
+					}
+					
+					//alert(height);
+				});
+				$('#count h5').text(i);
+			});
+		</script>
 	</body>
 </html>

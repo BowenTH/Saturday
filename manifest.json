@@ -262,7 +262,9 @@
 					"common/mui.css",
 					"main/fruit/fruit.html",
 					"img/load1.png",
-					"main/main.js"
+					"main/main.js",
+					"img/load.png",
+					"common/fonts/mui.ttf"
 				],
 				"refer": [
 					"main/main.html",
@@ -310,6 +312,15 @@
 					"common/mui.js",
 					"common/mui.css",
 					"img/s3.jpg"
+				],
+				"refer": [
+					"main/fruit/test.html"
+				],
+				"priority": 0
+			},
+			"main/fruit/test.html": {
+				"resources": [
+					"common/jquery.js"
 				],
 				"refer": [],
 				"priority": 0
