@@ -311,7 +311,8 @@
 					"common/fonts/mui.ttf",
 					"common/mui.js",
 					"common/mui.css",
-					"img/s3.jpg"
+					"img/s3.jpg",
+					"common/jquery.js"
 				],
 				"refer": [
 					"main/fruit/test.html"

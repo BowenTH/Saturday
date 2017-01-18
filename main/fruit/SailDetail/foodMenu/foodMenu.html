@@ -5,11 +5,41 @@
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="../../../../common/mui.css"/>
 		<script src="../../../../common/mui.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../../common/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			*{padding: 0;margin: 0;}
+			li{padding: 10px;}
+			ul{background: ;}
+			li{list-style: none;}
+			ul a{padding: 5px;}
+			.a-active{position: fixed;}
+		</style>
 	</head>
 	<body>
+		<div id="left-side" style="float:left;position:fixed;width: 50px;height: 500px;">
+			<ul>
+				<li data-id = "1">热销</li>				
+			</ul>
+			<ul>
+				<li data-id = "2">冷饮</li>				
+			</ul>
+			<ul>
+				<li data-id = "3">热饮</li>				
+			</ul>
+				<div class="mui-checkbox">
+					<div class="chat-content">
+						<div class="chat-content-inner">
+							
+						</div>
+					</div>
+				</div>
+		</div>
 		<div class=""style="margin-left: 50px;">
-			<ul class="mui-table-view">
-			    <li class="mui-table-view-cell mui-media">
+			
+				<!--<h6>热销</h6>-->
+				<ul class="mui-table-view" >
+			    <li class="mui-table-view-cell">
+					<h4><a id = "1" >热销</a></h4>
 					<img src="../../../../img/s3.jpg"style="width: 30px;height: 20px;border-radius: 20%;"/>
 			   		<span id="">粉木耳</span>
 			   		<button id="test" type="button" class="mui-btn mui-btn-green mui-btn-outlined">test</button>
@@ -20,102 +50,71 @@
 					</div>
 					<h6 style="color: greenyellow;">限时优惠，满20元立减25，亏本甩卖</h6>
 			    </li>
-					 <li class="mui-table-view-cell mui-media">
+				<li class="mui-table-view-cell mui-media">
 					<img src="../../../../img/s3.jpg"style="width: 30px;height: 20px;border-radius: 20%;"/>
 			   		<span id="">紫葡萄</span>
-			   		<div class="mui-numbox" data-numbox-min='0' style="float: right;" >
-						<button class="mui-btn mui-btn-numbox-minus"  type="button">-</button>
-						<input class="mui-input-numbox" type="number"id="countInput">
-						<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
-					</div>
+			   		<pre>
+			   			
+			   			
+			   			
+			   		</pre>
 					<h6 style="color: greenyellow;">限时优惠，满20元立减25，亏本甩卖</h6>
 			    </li>   
-			    </li>
-					 <li class="mui-table-view-cell mui-media">
+			    <li class="mui-table-view-cell mui-media">
 					<img src="../../../../img/s3.jpg"style="width: 30px;height: 20px;border-radius: 20%;"/>
 			   		<span id="">紫葡萄</span>
-			   		<div class="mui-numbox" data-numbox-min='0' style="float: right;" >
-						<button class="mui-btn mui-btn-numbox-minus"  type="button">-</button>
-						<input class="mui-input-numbox" type="number"id="countInput">
-						<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
-					</div>
+			   		<pre>
+			   			
+			   			
+			   			
+			   		</pre>
 					<h6 style="color: greenyellow;">限时优惠，满20元立减25，亏本甩卖</h6>
-			    </li>  
-			    </li>
-					 <li class="mui-table-view-cell mui-media">
+			    </li>   
+					<h4><a id = "2" >冷饮</a></h4>						
+			    <li class="mui-table-view-cell mui-media">
 					<img src="../../../../img/s3.jpg"style="width: 30px;height: 20px;border-radius: 20%;"/>
 			   		<span id="">紫葡萄</span>
-			   		<div class="mui-numbox" data-numbox-min='0' style="float: right;" >
-						<button class="mui-btn mui-btn-numbox-minus"  type="button">-</button>
-						<input class="mui-input-numbox" type="number"id="countInput">
-						<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
-					</div>
+			   		<pre>
+			   			
+			   			
+			   			
+			   		</pre>
 					<h6 style="color: greenyellow;">限时优惠，满20元立减25，亏本甩卖</h6>
-			    </li>  
-			    </li>
-					 <li class="mui-table-view-cell mui-media">
+			    </li>   
+			    <li class="mui-table-view-cell mui-media">
 					<img src="../../../../img/s3.jpg"style="width: 30px;height: 20px;border-radius: 20%;"/>
 			   		<span id="">紫葡萄</span>
-			   		<div class="mui-numbox" data-numbox-min='0' style="float: right;" >
-						<button class="mui-btn mui-btn-numbox-minus"  type="button">-</button>
-						<input class="mui-input-numbox" type="number"id="countInput">
-						<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
-					</div>
+			   		<pre>
+			   			
+			   			
+			   			
+			   		</pre>
 					<h6 style="color: greenyellow;">限时优惠，满20元立减25，亏本甩卖</h6>
-			    </li>  
-			    </li>
-					 <li class="mui-table-view-cell mui-media">
+			    </li>   
+			    <li class="mui-table-view-cell mui-media">
 					<img src="../../../../img/s3.jpg"style="width: 30px;height: 20px;border-radius: 20%;"/>
 			   		<span id="">紫葡萄</span>
-			   		<div class="mui-numbox" data-numbox-min='0' style="float: right;" >
-						<button class="mui-btn mui-btn-numbox-minus"  type="button">-</button>
-						<input class="mui-input-numbox" type="number"id="countInput">
-						<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
-					</div>
+			   		<pre>
+			   			
+			   			
+			   			
+			   		</pre>
 					<h6 style="color: greenyellow;">限时优惠，满20元立减25，亏本甩卖</h6>
 			    </li>  
-			    </li>
-					 <li class="mui-table-view-cell mui-media">
+			    <li class="mui-table-view-cell mui-media">
 					<img src="../../../../img/s3.jpg"style="width: 30px;height: 20px;border-radius: 20%;"/>
 			   		<span id="">紫葡萄</span>
-			   		<div class="mui-numbox" data-numbox-min='0' style="float: right;" >
-						<button class="mui-btn mui-btn-numbox-minus"  type="button">-</button>
-						<input class="mui-input-numbox" type="number"id="countInput">
-						<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
-					</div>
+			   		<pre>
+			   			
+			   			
+			   			
+			   		</pre>
 					<h6 style="color: greenyellow;">限时优惠，满20元立减25，亏本甩卖</h6>
 			    </li>  
-			    </li>
-					 <li class="mui-table-view-cell mui-media">
-					<img src="../../../../img/s3.jpg"style="width: 30px;height: 20px;border-radius: 20%;"/>
-			   		<span id="">紫葡萄</span>
-			   		<div class="mui-numbox" data-numbox-min='0' style="float: right;" >
-						<button class="mui-btn mui-btn-numbox-minus"  type="button">-</button>
-						<input class="mui-input-numbox" type="number"id="countInput">
-						<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
-					</div>
-					<h6 style="color: greenyellow;">限时优惠，满20元立减25，亏本甩卖</h6>
-			    </li>  
-			    </li>
-					 <li class="mui-table-view-cell mui-media">
-					<img src="../../../../img/s3.jpg"style="width: 30px;height: 20px;border-radius: 20%;"/>
-			   		<span id="">紫葡萄</span>
-			   		<div class="mui-numbox" data-numbox-min='0' style="float: right;" >
-						<button class="mui-btn mui-btn-numbox-minus"  type="button">-</button>
-						<input class="mui-input-numbox" type="number"id="countInput">
-						<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
-					</div>
-					<h6 style="color: greenyellow;">限时优惠，满20元立减25，亏本甩卖</h6>
-			    </li>  
+					
 			</ul>
 		</div>		
-		<div style="background:lightgrey;height: 600px;width: 50px;margin-top: -200px;position: fixed;">
-			<h5 style="background: black;margin-top: 200px;">xx</h6>
-				<h5 style="background: black;margin-top: 200px;">xx</h6>
-					<h5 style="background: black;margin-top: 200px;">xx</h6>
-						<h5 style="background: black;margin-top: 200px;">xx</h6>
-							<h5 style="background: black;margin-top: 200px;">xx</h6>
-		</div>
+		
 		<div style="padding: 15px; height: 50px;width: 100%; position: fixed; bottom: 80px;background: gray;">
 			<span style="margin-top: 10px;color: white;">购物车是空的</span><span style="float: right;">20元起送</span>
 		</div>
@@ -123,10 +122,31 @@
 		<script type="text/javascript">
 		mui.plusReady(function(){
 			document.getElementById('test').addEventListener('tap',function(){
-			mui.openWindow('../../test.html');
-		});	
+				mui.openWindow('../../test.html');
+			});				
 		});
-				
+		
+		mui('#left-side').on('tap','li',function(){
+				var dataId=this.dataset.id;
+				$(window).scrollTop($('#'+dataId).offset().top); 
+			});
+		
+		var height=$('#2').offset().top;//固定的高度
+		$(window).scroll(function(){
+			var $me=$(this); 
+					var fixheight=$(this).height();//滚动条的高度
+//					if($me.scrollTop()+fixheight>height){
+					if($me.scrollTop()>=height-3){
+						console.log($me.scrollTop()+':'+$me.height()+":"+height);
+						console.log($('#2').scrollTop());
+						//$me.scrollTop(0);
+						$('#left-side ul:eq(0)').css({'color':'black','background':'#efeff4'});
+						$('#left-side ul:eq(1)').css({'color':'red','background':'white'});
+					}else{
+						$('#left-side ul:eq(0)').css({'color':'red','background':'white'});
+						$('#left-side ul:eq(1)').css({'color':'black','background':'#efeff4'});
+					}
+		});
 		</script>
 	</body>
 </html>
