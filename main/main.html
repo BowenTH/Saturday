@@ -4,37 +4,16 @@
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="../common/mui.css"/>
 		<link rel="stylesheet" type="text/css" href="main.css"/>
+		<link rel="stylesheet" type="text/css" href="../common/iconfont.css"/>
 		<script src="../common/mui.js" type="text/javascript" charset="utf-8"></script>
 		<title></title>
 	</head>
-	<body>
-		<!-- 侧滑导航根容器 -->
-<!-- <div class="mui-off-canvas-wrap mui-draggable">
-  <!-- 主页面容器 -->
- <div class="mui-inner-wrap">
-     <!-- 菜单容器 -->
-    <aside class="mui-off-canvas-left">
-      <div class="mui-scroll-wrapper">
-        <div class="mui-scroll">
-          <!-- 菜单具体展示内容 -->
-          <div class="">
-          	<div id="sign">
-          		<img src="../img/load1.png"/>
-          		<span id="">nat</span><pre style="font-size: 70%;">高手的心似星空，看得见却看不懂。</pre>
-          	</div>
-          	<button id='closList' type="button" class="mui-btn mui-btn-block mui-btn-red ">关闭侧滑栏</button>
-          	<button id="setting" type="button" class="mui-btn mui-btn-grey mui-btn-block">设置</button>
-          	<button id='checkUp' type="button" class="mui-btn mui-btn-green mui-btn-block">检查新版本</button>
-          </div>
-        </div>
-      </div>
-    </aside>
-    </header>-->
-    
+	<body>   
     
     <!--<!-- 主页面标题 -->
     <!-- 主页面内容容器 -->
-    <div class="mui-content mui-scroll-wrapper" >
+    <!--<div class="mui-content mui-scroll-wrapper" >-->
+    <div id="pullrefresh" class="mui-content mui-scroll-wrapper">
       <div class="mui-scroll">
         <!-- 主界面具体展示内容 --> 
 		    <!--<div class="mui-bar-nav" style="height: 50px;">
@@ -45,25 +24,25 @@
 				<img src="../img/0.jpg" style="height: 100px;width: 100%;"/>
 			</div>
 			
-			<ul class="mui-table-view mui-grid-view mui-grid-9" style="background-color: lightgreen;position:page;">
-			<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-			    <a href="#">
-			        <span class="mui-icon mui-icon-home"></span>
+			<ul class="mui-table-view mui-grid-view mui-grid-9" style="position:page;background-color: white;">
+			<!--<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+			    <a href="javascript:onclick=function(){mui.alert('xx','提示')}">
+			        <span class="mui-icon iconfont icon-shucai"></span>
 			        <div class="mui-media-body">蔬菜</div>
 			    </a>
 			</li>
 			<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 			    <a href="#">
-			        <span class="mui-icon mui-icon-email"><span class="mui-badge mui-badge-red">6</span></span>
+			        <span class="mui-icon mui-icon-camera"><span class="mui-badge mui-badge-red">6</span></span>
 			        <div class="mui-media-body">夜宵</div>
 			    </a>
 			</li>
 			<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 			    <a href="#">
-			        <span class="mui-icon mui-icon-chatbubble"></span>
+			        <span class="mui-icon iconfont icon-caipin"></span>
 			        <div class="mui-media-body">品牌馆</div>
 			    </a>
-			</li>
+			</li>-->
 			<li id="location" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 			    <a href="#">
 			        <span class="mui-icon mui-icon-location"></span>
@@ -72,19 +51,40 @@
 			</li>
 			<li id="fruit" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 			    <a href="#">
-			        <span class="mui-icon mui-icon-search"></span>
+			        <span class="mui-icon iconfont icon-shuiguoshengxian"></span>
 			        <div class="mui-media-body">水果</div>
 			    </a>
 			</li>
-			<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+			<li id="supperMark" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 			    <a href="#">
-			        <span class="mui-icon mui-icon-phone"></span>
+			        <span class="mui-icon iconfont icon-chaoshi"></span>
 			        <div class="mui-media-body">超市购</div>
 			    </a>
 			</li>
 		</ul>
-  <!--</div>
-	</div>-->
+		
+		<ul class="mui-table-view" style="margin-top: 15px;">
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;" class="">
+						<img class="mui-media-object mui-pull-right" src="../img/1.png">
+						<div class="mui-media-body">
+							十元抢购
+							<p class="mui-ellipsis">静静的看这个世界，最后终于疯了</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-right" src="setting/img/logo.png">
+						<div class="mui-media-body">
+							幸福
+							<p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+						</div>
+					</a>
+				</li>
+			</ul>
+  	 </div>
+	</div>
 		
 	
 	<script type="text/javascript">		
@@ -133,7 +133,6 @@
 //			}
 
 			function pulldownRefresh() {
-				mui.toast('down');
 				setTimeout(function() {
 					var table = document.body.querySelector('.mui-table-view');
 					var cells = document.body.querySelectorAll('.mui-table-view-cell');
@@ -155,8 +154,9 @@
 			 * 上拉加载具体业务实现
 			 */
 			function pullupRefresh() {
-				mui.toast('up');
-				//mui('#pullrefresh').pullRefresh().pullupLoading();
+//				mui('#pullrefresh').pullRefresh().endPullupToRefresh(count++>2);
+				
+//				mui('#pullrefresh').pullRefresh().pullupLoading();
 				setTimeout(function() {
 					mui('#pullrefresh').pullRefresh().endPullupToRefresh((++count > 5)); //参数为true代表没有更多数据了。
 					var table = document.body.querySelector('.mui-table-view');
@@ -169,22 +169,10 @@
 //						li.className = 'mui-btn';
 //						li.innerHTML = '<a class="mui-navigate-right">Item ' + (i + 1) + '</a>';
 						li.innerHTML = '<a>'+i+ '</a>';
-						table.appendChild(li);
+						//table.appendChild(li);
 					}
 				}, 1000);
 			}
-//			if (mui.os.plus) {
-//				mui.plusReady(function() {
-//					setTimeout(function() {
-//						mui('#pullrefresh').pullRefresh().pullupLoading();
-//					}, 500);
-//
-//				});
-//			} else {
-//				mui.ready(function() {
-//					mui('#pullrefresh').pullRefresh().pullupLoading();
-//				});
-//			}
 	/**为了main.js文件调用方便，把部分js操作放到这了**/
 	mui.back=function(){};
 	
@@ -200,7 +188,7 @@
 		document.addEventListener('swiperight',function(){
 			var mainView=plus.webview.getLaunchWebview();
 			var wd=plus.webview.getWebviewById('webview.html');
-			wd.show("slide-in-left",200);		
+			wd.show("slide-in-left",200);
 			mainView.setStyle({mask:"rgba(0,0,0,0.8)"});
 		});
 	};

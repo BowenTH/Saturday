@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="../../common/mui.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../common/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../common/av.js" type="text/javascript" charset="utf-8"></script>
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+		
+		mui.init();
+		mui.plusReady(function(){
+//			var shopList = null;
+		});		
+		var shopList = null;	
+		upDateFile();
+		function upDateFile(){								
+			console.log('go datalist');
+			var shopQuery=new AV.Query('TESTsall');
+			shopQuery.find().then(function(results){
+				shopList = results;
+				console.log(JSON.stringify(shopList)); 
+			},function(error){
+				console.log(error);
+			});
+		}
+		/*所有数据保存到websql数据库，需要时更新*/
+		/*数据库获取服务器信息有4秒延迟*/
+		var db = openDatabase('testDB', '1.0', 'Test DB', 2 * 1024 * 1024);
+//      db.transaction(function (context){
+//      	context.executeSql('DROP NewshopData');
+//      	alert('drop success');
+//     }); 
+        var msg,j;
+        mui.later(function(){       	        
+	        db.transaction(function (context) {
+	           context.executeSql('CREATE TABLE IF NOT EXISTS LshopData (id unique, shopname,message)');
+	         	var flagData=null;
+	           for (j=0;j<shopList.length;j++) {	  
+	           		context.executeSql('INSERT INTO LshopData (id,shopname,message) values (?,?,?)',
+	           		[shopList[j].id,shopList[j].get('data').shopname,JSON.stringify(shopList[j])]);  
+  		        } 
+	         });
+         },4000);          
+//      db.transaction(function(context){
+//      	content.executeSql('UPDATA NewshopData SET')
+//      })
+ 
+        db.transaction(function (context) {
+           context.executeSql('SELECT * FROM LshopData', [], function (context, results) {
+            var len = results.rows.length, i; 
+            console.log('Got '+len+' rows.');
+               for (i = 0; i < len; i++){
+               	var shopData=JSON.parse(results.rows.item(i).message);
+               	var product=shopData.data.product;
+               	console.log(shopData.data.shopname); 
+//             	console.log(product.length);
+                console.log(JSON.stringify(product));
+                for (var typeobj in product) {
+                	for (var j=0;j<product[typeobj].length;j++) {
+                		console.log(product[typeobj][j].name+':'+product[typeobj][j].price);
+                	}
+                }
+            }
+         });
+        });
+		</script>
+	</body>
+</html>

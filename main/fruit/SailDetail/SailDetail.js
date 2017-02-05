@@ -3,7 +3,7 @@ mui.plusReady(function(){
 //		var flagMenu=[{button:'点菜',id:'foodMenu.html'},{button:'评价',id:'appraise.html'}];
 		var flagMenu='点菜';
 		mui.back=function(){
-			plus.webview.currentWebview().hide();
+			plus.webview.getWebviewById('SailDetailHeader.html').hide();
 			flagMenu='点菜';
 		}
 		
@@ -13,7 +13,7 @@ mui.plusReady(function(){
 			{
 				flagMenu='点菜';localStorage.setItem('SailDetailBack','0');
 			}
-		var tabFlag=this.getElementsByClassName('tab')[0].innerHTML;
+		var tabFlag=this.getElementsByClassName('tab')[0].innerHTML;  
 		
 		if (tabFlag==flagMenu)return;
 		if(tabFlag=='点菜'){
@@ -24,18 +24,6 @@ mui.plusReady(function(){
 			plus.webview.getWebviewById('appraise.html').show();
 		}
 		flagMenu=tabFlag;
-		
-//		if (tabFlag=='点菜'&&flagMenu)return;
-//		if(tabFlag=='点菜'){
-//			mui.toast('menu');
-//			plus.webview.getWebviewById('appraise.html').hide();
-//			plus.webview.getWebviewById('foodMenu.html').show();
-//		} else{
-//			mui.toast('appraise');
-//			plus.webview.getWebviewById('foodMenu.html').hide();
-//			plus.webview.getWebviewById('appraise.html').show();
-//			flagMenu=0;
-//		}
 	});
 });	
 

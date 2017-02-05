@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../../common/mui.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../../common/mui.css"/>
+	</head>
+	<body>
+		<h5 class="mui-content-padded">限定最小值和最大值(1~9)</h5>
+		<div class="mui-numbox" data-numbox-min='0' data-numbox-max='9'>
+			<button id="btn" class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+			<input id="test" class="mui-input-numbox" type="number" value="5" />
+			<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+		</div>
+	</body>
+	<script type="text/javascript">
+			mui.init();
+			var i=5;
+			document.getElementById("btn").addEventListener('tap', function(event) {
+				alert('-------------'+i--);
+				mui.alert('当前值: ' + document.getElementById("box").value, null, "提示");
+			});
+			var testBox=document.getElementById("test");
+			testBox.addEventListener('change',function(){
+				console.log(testBox.value);
+			});
+	</script>
+</html>

@@ -3,101 +3,151 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../common/mui.css"/>
+		<script src="../../common/mui.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../common/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../common/av.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
 		<div id="count">
 			<h5></h5><li>top</li><li>buttom</li>
 		</div>
-		<pre>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			x
-			
-			
-			xxxxxx
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			s
-			
-			
-			
-			x
-		</pre>
+		<span class="mui-icon-extra mui-icon-extra-people">s</span>
+		
 		<h2>sss</h2>
+		<input type="file" id="photoFileUpload"/>
+		<button type="button" class="mui-btn mui-btn-purple mui-btn-outlined">上传</button>
 		<script type="text/javascript">
-			var i=0;
-			$(document).ready(function(){
-				$('#count').css('position','fixed');
-				var options={scroll:false};
-				
-				var height=$('h2').offset().top;//固定的高度
-				
-//				var totalh=document.documentElement.clientHeight;
-//				var height=$('h2').position().top;
-				$(window).scroll(function(){
-					var $me=$(this); 
-					var fixheight=$(this).height();//滚动条的高度
-					$('#count h5').text(i+=1);
-
-					if($me.scrollTop()+fixheight>height){
-						console.log($me.scrollTop()+$me.height()+":"+height);
-						//$me.scrollTop(0);
-						$('li:eq(0)').css('color','black');
-						$('li:eq(1)').css('color','red');
-					}else{
-						$('li:eq(0)').css('color','red');
-						$('li:eq(1)').css('color','black');
-					}
+		mui.init();
+		mui.plusReady(function addFile(){
+			plus.io.resolveLocalFileSystemURL('_doc/',function(entry){
+					entry.getDirectory('shoplist',{create:true},function(dir){
+					var shopdir=dir.toLocalURL();});});
 					
-					//alert(height);
+			plus.io.resolveLocalFileSystemURL('_doc/shoplist/',function(shopfile){
+				shopfile.getFile('shop.txt',{create:true},function(fileEntry){
+					fileEntry.file(function(file){
+						var fileReader=new plus.io.FileReader();
+						console.dir(JSON.stringify(file));//1111111
+						fileReader.readAsText(file,'utf-8');
+						fileReader.onloadend=function(evt){
+							console.dir(JSON.stringify(evt));//22222
+						}
+						/*add file*/
+						var shopList = null;
+						function upDateFile(){								
+							console.log('go datalist');
+						var shopQuery=new AV.Query('TESTsall');
+						shopQuery.find().then(function(results){
+						//				for (var i=0;i<results.length;i++) {
+						//					console.dir(results[i].get('username')+':'+results[i].get('data'));
+						//				}
+								shopList = results;
+								console.log(JSON.stringify(shopList));
+							},function(error){
+								console.log(error);
+							});
+						}
+						
+						fileEntry.createWriter(function(writer){
+							writer.onwrite=function(e){
+								console.log('write success');
+							}
+//							writer.seek(writer.length);
+							var jsondata=[{name:'bowenth',age:30},{name:'saturday',age:20}];
+//							JSON.parse(str);//333333333333333333333333333333333
+							upDateFile();
+							mui.later(function(){
+								console.log(JSON.stringify(shopList));
+								writer.write(JSON.stringify(shopList));
+							},5000);							
+						},function(e){
+							console.log(e.message+JSON.stringify(e));
+						});
+					},function(error){
+						console.dir('creat file fail');
+					});
 				});
-				$('#count h5').text(i);
 			});
+		});
+		function testQuery(){	
+				var testquery = new AV.Query('_File');
+				testquery.equalTo('name','Lavatar.jpg');
+				testquery.find().then(function(results){
+					console.dir(results[0].id);
+				},function(error){
+					console.log(error);
+				});
+				
+				testquery.first().then(function(results){
+					console.dir(results.id);
+				},function(error){
+					console.log(error);
+				});
+				
+				testquery.count().then(function(results){
+					console.dir(results);
+				},function(error){
+					console.log(error);
+				});
+				var cql="select * from _File where name='Lavatar.jpg'";
+				AV.Query.doCloudQuery(cql).then(function(data){
+					console.log('go');
+					var results=data.results;
+					console.log(results[0].get('name'));
+				},function(error){
+					console.log(error);
+				});
+//				document.getElementsByTagName('button')[0].addEventListener('tap',function(){
+//					
+//					var fileUploadControl = $('#photoFileUpload')[0];
+//			    if (fileUploadControl.files.length > 0) {
+//			      var localFile = fileUploadControl.files[0];
+//			      var name = 'Lavatar.jpg';
+//					console.log(localFile);
+//			      var file = new AV.File(name, localFile);
+//			      file.save().then(function(file) {
+//			        // 文件保存成功
+//			        console.log(file.url());
+//			      }, function(error) {
+//			        // 异常处理
+//			        console.error(error);
+//			      });
+//			    }
+//				});
+//				
+//		//下载图片
+//		mui.plusReady(function(){var imgUrl = 'https://dn-91TtjFpY.qbox.me/4c6d3aa528a4a4541199.jpg';
+//		var suffix = 'test.jpg';
+//		var downLoader = plus.downloader.createDownload(imgUrl, {
+//		    method: 'GET',
+//		    filename: '_downloads/image/' + suffix
+//		}, function(download, status) {
+//			console.log('down pic now!!!');
+//		    var fileName = download.filename;
+//		    console.log('文件名:' + fileName);
+//		    console.log('下载状态：' + status);
+//		    
+//		    plus.gallery.save(fileName, function() {
+//			    mui.confirm("打开相册", "打开相册？", ["打开", "不看"], function(event) {
+//			        var gindex = event.index;
+//			        if(gindex == 0) {
+//			            plus.gallery.pick(function(file) {
+//			                mui.toast("你选择了图片：" + file);
+//			            }, function(error) {
+//			                console.log(error);
+//			            }, {
+//			                filter: 'image'
+//			            });
+//			        }
+//			    });
+//			});
+//		});
+//		downLoader.start();
+//			
+//		});
+	}
+		
 		</script>
 	</body>
 </html>

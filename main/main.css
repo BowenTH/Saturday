@@ -16,3 +16,6 @@
 	width: 50px;
 	border-radius: 50px;
 }
+.mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body{
+	font-size: 12px;
+}

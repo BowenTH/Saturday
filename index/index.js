@@ -53,6 +53,11 @@ mui.plusReady(function(){
 //	document.getElementsByClassName('testhead')[0].addEventListener('tap',function(){
 ////		mui.toast('功能待加');
 //	});
-
+	document.getElementById('leftSlide').addEventListener('tap',function(){
+			var mainView=plus.webview.getLaunchWebview();
+			var wd=plus.webview.getWebviewById('webview.html');
+			wd.show("slide-in-left",200);
+			mainView.setStyle({mask:"rgba(0,0,0,0.8)"});
+		});
 });
   

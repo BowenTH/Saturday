@@ -163,7 +163,11 @@
 					"main/main.css",
 					"main/main.js",
 					"img/load1.png",
-					"img/0.jpg"
+					"img/0.jpg",
+					"common/fonts/iconfont.ttf",
+					"common/iconfont.css",
+					"main/setting/img/logo.png",
+					"img/as.png"
 				],
 				"refer": [
 					"main/location/location.html",
@@ -212,7 +216,9 @@
 					"common/mui.js",
 					"common/mui.css",
 					"img/9.jpg",
-					"img/0.jpg"
+					"img/0.jpg",
+					"list/list.js",
+					"common/jquery.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -264,7 +270,8 @@
 					"img/load1.png",
 					"main/main.js",
 					"img/load.png",
-					"common/fonts/mui.ttf"
+					"common/fonts/mui.ttf",
+					"common/jquery.js"
 				],
 				"refer": [
 					"main/main.html",
@@ -312,7 +319,8 @@
 					"common/mui.js",
 					"common/mui.css",
 					"img/s3.jpg",
-					"common/jquery.js"
+					"common/jquery.js",
+					"main/fruit/SailDetail/foodMenu/foodMenu.js"
 				],
 				"refer": [
 					"main/fruit/test.html"
@@ -321,7 +329,19 @@
 			},
 			"main/fruit/test.html": {
 				"resources": [
-					"common/jquery.js"
+					"common/jquery.js",
+					"common/mui.js",
+					"common/av.js",
+					"main/fruit/hello.txt"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"main/fruit/db.html": {
+				"resources": [
+					"common/jquery.js",
+					"common/mui.js",
+					"common/av.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -329,7 +349,6 @@
 		},
 		"idle": {
 			"resources": [
-				"img/as.png",
 				"img/load1.jpg",
 				"img/load3.jpg",
 				"img/load2.jpg",

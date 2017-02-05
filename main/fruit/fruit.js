@@ -1,7 +1,8 @@
 var sum=0;
 mui.plusReady(function(){
 	plus.webview.create('SailDetail/SailDetailHeader.html','SailDetailHeader.html',{},{shopName:'zhangshan'});
-	mui('.mui-media-body').on('tap','.listfd',function(e){		
+	sqlcreat();
+	mui('.mui-media-body').on('tap','.listfd',function(e){
 		var goWeb=plus.webview.getWebviewById('SailDetailHeader.html');
 		var shopname=this.getElementsByClassName('shopname')[0].innerHTML;
 		var detailPage=null;
@@ -13,6 +14,73 @@ mui.plusReady(function(){
 //		goWeb.show({shopName:shopname});
 	});
 });
+
+var shopList = null;
+function sqlcreat(){		
+	upDateFile();
+	function upDateFile(){								
+		console.log('go datalist');
+		var shopQuery=new AV.Query('TESTsall');
+		shopQuery.find().then(function(results){
+			shopList = results;
+			console.log(JSON.stringify(shopList)); 
+		},function(error){
+			console.log(error);
+		});
+	}	
+	/*所有数据保存到websql数据库，需要时更新*/
+	/*数据库获取服务器信息有4秒延迟*/
+	var db = openDatabase('testDB', '1.0', 'Test DB', 2 * 1024 * 1024);
+	//      db.transaction(function (context){
+	//      	context.executeSql('DROP NewshopData');
+	//      	alert('drop success');
+	//     }); 
+	var msg,j;
+	mui.later(function(){       	        
+	    db.transaction(function (context) {
+	       context.executeSql('CREATE TABLE IF NOT EXISTS SshopData (id unique, shopname,message)');
+	     	var flagData=null;
+	       for (j=0;j<shopList.length;j++) {	  
+	       		context.executeSql('INSERT INTO SshopData (id,shopname,message) values (?,?,?)',
+	       		[shopList[j].id,shopList[j].get('data').shopname,JSON.stringify(shopList[j])]);  
+	        } 
+	     });
+	 },4000);          
+	//      db.transaction(function(context){
+	//      	content.executeSql('UPDATA NewshopData SET')
+	//      })
+
+	        db.transaction(function (context) {
+	        	var sqlResult=[];
+	           context.executeSql('SELECT * FROM SshopData', [], function (context, results) {
+//	    sqlResult=results;//获取数据库商户信息
+	    var len = results.rows.length, i;
+	    console.log('Got '+len+' rows.');
+	    
+	       for (i = 0; i < len; i++){
+	       	var shopData=JSON.parse(results.rows.item(i).message);
+	       	var flag=results.rows.item(i).message; 
+	       	sqlResult[i]=results.rows.item(i).message;	       	
+				       	
+	       	var product=shopData.data.product;
+	       	console.log(shopData.data.shopname); 
+	//             	console.log(product.length); 
+//	        console.log(JSON.stringify(product));
+	        for (var typeobj in product) {
+	        	for (var j=0;j<product[typeobj].length;j++) {
+//	        		console.log(product[typeobj][j].name+':'+product[typeobj][j].price);
+	        	} 
+	        }    
+	    }      
+//	       //往foodMenu.html里发送shopList信息
+//			alert('foodMenu page'); 
+//			var i=0; 
+//			foodMenu=plus.webview.getWebviewById('foodMenu.html');
+//			alert(JSON.stringify(foodMenu));
+//			mui.fire(foodMenu,'ShopListfire',{'sqlResult':sqlResult});			
+	 });  
+	});
+}
 
 /*调试总额显示*/
 /*document.getElementById('list2').addEventListener('tap',function(){	
@@ -70,8 +138,13 @@ function addUser(){//服务器添加用户
 					username:localStorage.getItem('username'),
 					password:'000',
 					data:{
-						shopname:'上上之家',
-						product:'鸡鸭鱼肉',
+						shopname:'韩食馆',
+						product:{
+							'热销':[{name:'驴肉火烧',price:10},{name:'红烧鱼',price:12}],
+							'特价':[{name:'泡菜',price:2},{name:'菠萝',price:3}],
+							'新品':[{name:'韩炸丸子',price:1},{name:'萝卜',price:1}],
+							'精品':[{name:'生鱼片',price:100},{name:'萝卜',price:1}]
+						},
 						position:localStorage.getItem('shopPosition')
 					}}
 				).then(function() {
@@ -119,7 +192,7 @@ function getShop(userList){
 	
 	setTimeout(function(){
 //		alert('点了刷新了');
-		listFood(userList);		
+		listFood(shopList);		
 	},1000);
 }
 
@@ -136,14 +209,13 @@ function listFood(shopList){
 			var li=document.createElement('span');
 			fdModel(li,shopList[i]);
 			fdDiv.appendChild(li);
-			shopList[i].flag++;
+			shopList[i]['flag']=1;
 		}
 	}
-	
 }
 function fdModel(li,data){
 	li.innerHTML='<div id="list2" class="listfd">'+'<img src="../../img/s2.jpg" style="height: 40px;width: 50px;"/>'
-	+'<h5 style="" class="shopname">'+data.name+'</h5>'+
+	+'<h5 style="" class="shopname">'+data.get('data').shopname+'</h5>'+
 			'<h5 class="content" style="padding: 0px;margin-left:53px;margin-top: -30px;"><span class="contentx" style="font-size: 70%;">位置:'+data.address+'</span></h5>'
 			+'<h6 style="margin-left: 5px;" class="jiancontent">新用户立减5元<span class="longcontent">距离:1000m</span></h6>'
 			+'<h6 style="margin-left: 5px;" class="fullcontent">满30立减5元</h6>'
@@ -160,66 +232,5 @@ document.addEventListener('swipeleft',function(e){
 		return;
 		mui.back();	
 })
-/* 支付宝支付引用  */
-var channel =null;
-function plusReady(){
-	document.getElementById('go').addEventListener('tap',function(){
-	//var count = document.getElementById('sum').value;
-	mui.toast('未结算金额:'+sum);
-	
-	plus.payment.getChannels(function(channels){
-	channel=channels[0];
-	},function(e){
-		alert('获取支付通道失败:'+e.message);
-	});
-	pay('alipay');
-//	pay('weixin');
-})
-}
-document.addEventListener('plusready',plusReady,false);
-var ALLPAYSERVER='http://demo.dcloud.net.cn/helloh5/payment/alipay.php?total=';
-//var ALLPAYSERVER='https://bowenth.github.io/';
-var WXPAYSERVER='http://demo.dcloud.net.cn/helloh5/payment/wxpay.php?total=';
-
-
-
-//2.发起支付请求
-function pay(id){
- var PAYSERVER='';
-    if(id=='alipay'){
-        PAYSERVER=ALLPAYSERVER;
-//      alert('发起支付请求')
-    }else if(id=='weixin'){
-    	alert('微信支付哟');
-        PAYSERVER=WXPAYSERVER;
-    }else{
-        plus.nativeUI.alert("不支持此支付通道！",null,"捐赠");
-        return;
-    }
-    var xhr=new XMLHttpRequest();
-    xhr.onreadystatechange=function(){
-//  	alert('判断');
-        switch(xhr.readyState){
-            case 4:
-            if(xhr.status==200){
-                plus.payment.request(channel,xhr.responseText,function(result){
-                    plus.nativeUI.alert("支付成功！",function(){
-                        back();
-                    });
-                },function(error){
-                    plus.nativeUI.alert("支付失败：" + error.code);
-                });
-            }else{
-                alert("获取订单信息失败！");
-            }
-            break;
-            default:
-            break;
-        }
-    }
-    xhr.open('GET',PAYSERVER);
-    xhr.send();
-}
-
 
 

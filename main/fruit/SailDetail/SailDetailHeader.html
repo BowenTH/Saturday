@@ -27,29 +27,29 @@
 		mui.plusReady(function(){			
 			mui.back=function (){ 
 				plus.webview.currentWebview().hide();
-//				plus.webview.getWebviewById('foodMenu.html').hide();
-//				plus.webview.getWebviewById('appraise.html').hide();
 				localStorage.setItem('SailDetailBack','1');
 			};
 			window.addEventListener('ShopNamefire',function(event){				
 				shopName=event.detail.shopName;
+				/*添加两个子页面*/
+				var Cv=plus.webview.currentWebview();
+				var vlist=[{url:'foodMenu/foodMenu.html',id:'foodMenu.html'},
+				{url:'appraise/appraise.html',id:'appraise.html'}];
+				for(var i=0;i<vlist.length;i++){
+					if(plus.webview.getWebviewById(vlist[i]))continue;
+					var addv=plus.webview.create(vlist[i].url,vlist[i].id,{
+						top:'80px',
+						popGesture:'none'
+					},{
+						'shopname':shopName
+					});
+					Cv.append(addv);
+					console.log(i+':'+vlist[i].id);
+				}
 				mui('.mui-title')[0].innerHTML=shopName;
-//				console.log('loading show foodmenu');
 				plus.webview.getWebviewById('foodMenu.html').show();//!!!!!!很关键，首次加载商家详情页面，，初始化子页面
 			});	
-			/*添加两个子页面*/
-			var Cv=plus.webview.currentWebview();
-			var vlist=[{url:'foodMenu/foodMenu.html',id:'foodMenu.html'},
-			{url:'appraise/appraise.html',id:'appraise.html'}];
-			for(var i=0;i<vlist.length;i++){
-				if(plus.webview.getWebviewById(vlist[i]))continue;
-				var addv=plus.webview.create(vlist[i].url,vlist[i].id,{
-					top:'80px',
-					popGesture:'none'
-				});
-				Cv.append(addv);
-				console.log(i+':'+vlist[i].id);
-			}
+			
 			
 		});
 	</script>

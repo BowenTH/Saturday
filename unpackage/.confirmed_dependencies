@@ -48,7 +48,11 @@
 			"main/main.css",
 			"main/main.js",
 			"img/load1.png",
-			"img/0.jpg"
+			"img/0.jpg",
+			"common/fonts/iconfont.ttf",
+			"common/iconfont.css",
+			"main/setting/img/logo.png",
+			"img/as.png"
 		],
 		"refer": [
 			"main/location/location.html",
@@ -108,8 +112,11 @@
 			"common/mui.js",
 			"common/mui.css",
 			"img/9.jpg",
-			"img/0.jpg"
-		]
+			"img/0.jpg",
+			"list/list.js",
+			"common/jquery.js"
+		],
+		"refer": []
 	},
 	"main/setting/setting.html": {
 		"resources": [
@@ -120,13 +127,15 @@
 			"common/fonts/mui.ttf",
 			"common/mui.js",
 			"main/setting/img/logo.png"
-		]
+		],
+		"refer": []
 	},
 	"main/mainhead.html": {
 		"resources": [
 			"common/mui.js",
 			"common/mui.css"
-		]
+		],
+		"refer": []
 	},
 	"main/fruit/fruit-header.html": {
 		"resources": [
@@ -143,7 +152,8 @@
 		"resources": [
 			"common/mui.js",
 			"common/mui.css"
-		]
+		],
+		"refer": []
 	},
 	"main/webview.html": {
 		"resources": [
@@ -153,7 +163,8 @@
 			"img/load1.png",
 			"main/main.js",
 			"img/load.png",
-			"common/fonts/mui.ttf"
+			"common/fonts/mui.ttf",
+			"common/jquery.js"
 		],
 		"refer": [
 			"main/main.html",
@@ -192,7 +203,8 @@
 			"common/mui.js",
 			"common/mui.css",
 			"img/load.png"
-		]
+		],
+		"refer": []
 	},
 	"main/fruit/SailDetail/foodMenu/foodMenu.html": {
 		"resources": [
@@ -200,7 +212,8 @@
 			"common/mui.js",
 			"common/mui.css",
 			"img/s3.jpg",
-			"common/jquery.js"
+			"common/jquery.js",
+			"main/fruit/SailDetail/foodMenu/foodMenu.js"
 		],
 		"refer": [
 			"main/fruit/test.html"
@@ -208,7 +221,18 @@
 	},
 	"main/fruit/test.html": {
 		"resources": [
-			"common/jquery.js"
+			"common/jquery.js",
+			"common/mui.js",
+			"common/av.js",
+			"main/fruit/hello.txt"
+		],
+		"refer": []
+	},
+	"main/fruit/db.html": {
+		"resources": [
+			"common/jquery.js",
+			"common/mui.js",
+			"common/av.js"
 		]
 	}
 }
