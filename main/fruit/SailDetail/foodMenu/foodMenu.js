@@ -7,12 +7,13 @@ mui.plusReady(function(){
 	 	db.transaction(function (context) {
 //	        var sqlResult=[];
 	        context.executeSql('SELECT * FROM SshopData', [], function (context, results) {
-	    var len = results.rows.length, i;
-	    
+	    var len = results.rows.length, i;	       
 	       for (i = 0; i < len; i++){
 	       	var shopData=JSON.parse(results.rows.item(i).message);
+//	       	document.getElementById('left-side').innerHTML='';
 			if(shopData.data.shopname==shopName){//获取当前商铺信息
 				var product=shopData.data.product;
+				mui.toast(JSON.stringify(product));
 //		       	console.log(shopData.data.shopname);
 		       	var typeList=['热销','特价','新品','精品'];//固定 侧栏
 		        for (var typeobj in product) {
@@ -22,7 +23,7 @@ mui.plusReady(function(){
 		        	//添加侧列listdiv 热销，特价，新品，精品
 		        	var ul = document.createElement('ul');//add ul
 		        	ul.innerHTML='<li>'+typeobj+'</li>';
-		        	var fdDIV = document.body.querySelector('#left-side');//侧栏列表
+		        	var fdDIV = document.body.querySelector('#left-side');//侧栏列表		        	
 		        	var fdUL = document.body.querySelector('#fdUL');//菜单列表
 		        	$(fdUL).addClass('mui-table-view'); 
 		        	fdDIV.appendChild(ul);
@@ -54,7 +55,7 @@ function plusReady(){
 //	alert(shopName);	
 	var checklist=[];
 	$list=$('#menu-list ul li');
-	alert($('#menu-list .food-type:eq(0)').text());
+
 //	alert($('#menu-list .sigle:eq(1)').text());
 //	alert($('#menu-list .mui-badge:eq(1)').text());
 	for (var i=0;i<$('#menu-list ul li').length;i++) {
@@ -73,8 +74,6 @@ function plusReady(){
        		[shopName,JSON.stringify(checklist)]);  
        });
 
-	
-	return;
 	plus.payment.getChannels(function(channels){
 	channel=channels[0];
 	},function(e){

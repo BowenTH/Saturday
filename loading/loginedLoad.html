@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../common/mui.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			#logo{
+				padding-top: 90%;
+			}
+			.box{
+				height: 100px;
+				width: 80px;
+				background: url(../img/6.png) no-repeat center;
+				/*filter: drop-shadow(20px 0);*/
+				/*border-right: 2px solid transparent;
+  				-webkit-filter: drop-shadow(red 10px 0px);*/
+  				/*overflow: hidden;*/
+			}
+			img{
+				
+			}
+			#radiu{
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div style="float: right;border-radius: 50%;border: 1px solid gray; height: 20px;width: 20px; text-align: center;padding: 5px;">
+			<span id="radiu"></span>s
+		</div>
+		<img style="height: 200px;" src="../img/load.jpg">
+		</img>
+		<div id="logo" style="text-align: center;">
+			<hr style="border-top:1px double gainsboro;" />
+			<span>
+				<img style="width: 20px;height: 18px;" src="../img/6.png"/>
+				<span>sutarday科技</span>
+			</span>
+		</div>
+		<script type="text/javascript">
+//			window.onload=setTime();
+			mui.init();
+			var timer=null;
+			var flag=8; 
+			mui.plusReady(function(){
+				mui.later(function(){
+					timer=setInterval('setTime()',1000);
+				},10);	
+			});			
+								
+		    function setTime(){	
+//		    	mui.toast(flag);
+				if(flag===0){
+					clearInterval(timer);
+					plus.webview.getWebviewById('loginedLoad.html').hide();
+//					plus.webview.getWebviewById('index.html').show('slide-in-left',300);
+					return;
+				}
+				document.getElementById('radiu').innerHTML=flag;
+				flag--;				
+			}
+			
+		</script>
+	</body>
+</html>

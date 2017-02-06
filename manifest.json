@@ -189,7 +189,9 @@
 					"main/mainhead.html",
 					"list/list.html"
 				],
-				"refer": [],
+				"refer": [
+					"loading/loginedLoad.html"
+				],
 				"priority": 0
 			},
 			"main/fruit/fruit.html": {
@@ -275,7 +277,8 @@
 				],
 				"refer": [
 					"main/main.html",
-					"main/setting/setting.html"
+					"main/setting/setting.html",
+					"login/login.html"
 				],
 				"priority": 0
 			},
@@ -342,6 +345,16 @@
 					"common/jquery.js",
 					"common/mui.js",
 					"common/av.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"loading/loginedLoad.html": {
+				"resources": [
+					"img/6.png",
+					"common/mui.js",
+					"img/load.png",
+					"img/load.jpg"
 				],
 				"refer": [],
 				"priority": 0

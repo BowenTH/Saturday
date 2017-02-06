@@ -2,7 +2,13 @@
 mui.init();
 
 mui.plusReady(function(){	
-	mui.toast('正在加载，请稍等...')
+	localStorage.setItem('loginMain','false');
+	if (localStorage.getItem('loginMain')!='true') {
+		plus.webview.create('../loading/loginedLoad.html','loginedLoad.html');
+		plus.webview.getWebviewById('loginedLoad.html').show();
+		localStorage.setItem('loginMain','false');
+	}
+	
 	var parentWv=plus.webview.currentWebview();
 	var Wvlist=[{
 		url:'../main/main.html',

@@ -1,238 +1,248 @@
 {
-	"index.html": {
-		"resources": [
-			"common/mui.js",
-			"common/mui.css"
-		],
-		"refer": [
-			"loading/loading.html",
-			"login/login.html"
-		]
-	},
-	"login/login.html": {
-		"resources": [
-			"login/login.js",
-			"common/fonts/mui.ttf",
-			"login/login.css",
-			"login/av.js",
-			"common/mui.js",
-			"common/mui.css",
-			"common/av.js"
-		],
-		"refer": [
-			"index/index.html"
-		]
-	},
-	"loading/loading.html": {
-		"refer": [
-			"login/login.html"
-		],
-		"resources": []
-	},
-	"main/location/location.html": {
-		"resources": [
-			"main/location/location.js",
-			"common/mui.js",
-			"common/mui.css"
-		],
-		"refer": [
-			"main/location/webview.html"
-		]
-	},
-	"main/main.html": {
-		"resources": [
-			"img/1.png",
-			"common/fonts/mui.ttf",
-			"common/mui.js",
-			"common/mui.css",
-			"main/main.css",
-			"main/main.js",
-			"img/load1.png",
-			"img/0.jpg",
-			"common/fonts/iconfont.ttf",
-			"common/iconfont.css",
-			"main/setting/img/logo.png",
-			"img/as.png"
-		],
-		"refer": [
-			"main/location/location.html",
-			"main/fruit/fruit.html",
-			"main/setting/setting.html",
-			"main/fruit/fruit-header.html",
-			"main/location/webview.html",
-			"main/webview.html"
-		]
-	},
-	"index/index.html": {
-		"resources": [
-			"index/index.js",
-			"main/main.html",
-			"common/fonts/mui.ttf",
-			"common/mui.js",
-			"common/mui.css",
-			"main/mainhead.html",
-			"list/list.html"
-		],
-		"refer": [
-			"list/list.html",
-			"main/main.html",
-			"main/mainhead.html"
-		]
-	},
-	"main/fruit/fruit.html": {
-		"resources": [
-			"img/s2.jpg",
-			"main/fruit/fruit.css",
-			"img/s1.jpg",
-			"img/s3.jpg",
-			"img/s0.jpeg",
-			"main/fruit/fruit.js",
-			"common/fonts/mui.ttf",
-			"common/mui.js",
-			"common/mui.css",
-			"common/av.js"
-		],
-		"refer": [
-			"main/fruit/show/show.html",
-			"main/fruit/SailDetail/SailDetailHeader.html"
-		]
-	},
-	"main/fruit/show/show.html": {
-		"resources": [
-			"common/fonts/mui.ttf",
-			"common/mui.js",
-			"common/mui.css",
-			"main/fruit/show/show.js"
-		],
-		"refer": []
-	},
-	"list/list.html": {
-		"resources": [
-			"common/fonts/mui.ttf",
-			"common/mui.js",
-			"common/mui.css",
-			"img/9.jpg",
-			"img/0.jpg",
-			"list/list.js",
-			"common/jquery.js"
-		],
-		"refer": []
-	},
-	"main/setting/setting.html": {
-		"resources": [
-			"main/setting/js/mui.view.js",
-			"main/setting/css/feedback.css",
-			"main/setting/js/feedback.js",
-			"common/mui.css",
-			"common/fonts/mui.ttf",
-			"common/mui.js",
-			"main/setting/img/logo.png"
-		],
-		"refer": []
-	},
-	"main/mainhead.html": {
-		"resources": [
-			"common/mui.js",
-			"common/mui.css"
-		],
-		"refer": []
-	},
-	"main/fruit/fruit-header.html": {
-		"resources": [
-			"common/fonts/mui.ttf",
-			"common/mui.js",
-			"common/mui.css",
-			"main/fruit/fruit.html"
-		],
-		"refer": [
-			"main/fruit/fruit.html"
-		]
-	},
-	"main/location/webview.html": {
-		"resources": [
-			"common/mui.js",
-			"common/mui.css"
-		],
-		"refer": []
-	},
-	"main/webview.html": {
-		"resources": [
-			"common/mui.js",
-			"common/mui.css",
-			"main/fruit/fruit.html",
-			"img/load1.png",
-			"main/main.js",
-			"img/load.png",
-			"common/fonts/mui.ttf",
-			"common/jquery.js"
-		],
-		"refer": [
-			"main/main.html",
-			"main/setting/setting.html"
-		]
-	},
-	"main/fruit/SailDetail/SailDetailHeader.html": {
-		"resources": [
-			"common/fonts/mui.ttf",
-			"common/mui.js",
-			"main/fruit/SailDetail/SailDetail.html",
-			"common/mui.css",
-			"main/fruit/SailDetail/foodMenu/foodMenu.html",
-			"main/fruit/SailDetail/appraise/appraise.html"
-		],
-		"refer": [
-			"main/fruit/SailDetail/SailDetail.html",
-			"main/fruit/SailDetail/foodMenu/foodMenu.html",
-			"main/fruit/SailDetail/appraise/appraise.html"
-		]
-	},
-	"main/fruit/SailDetail/SailDetail.html": {
-		"resources": [
-			"common/fonts/mui.ttf",
-			"common/mui.js",
-			"common/mui.css",
-			"main/fruit/SailDetail/SailDetail.js"
-		],
-		"refer": [
-			"main/fruit/SailDetail/appraise/appraise.html"
-		]
-	},
-	"main/fruit/SailDetail/appraise/appraise.html": {
-		"resources": [
-			"common/fonts/mui.ttf",
-			"common/mui.js",
-			"common/mui.css",
-			"img/load.png"
-		],
-		"refer": []
-	},
-	"main/fruit/SailDetail/foodMenu/foodMenu.html": {
-		"resources": [
-			"common/fonts/mui.ttf",
-			"common/mui.js",
-			"common/mui.css",
-			"img/s3.jpg",
-			"common/jquery.js",
-			"main/fruit/SailDetail/foodMenu/foodMenu.js"
-		],
-		"refer": [
-			"main/fruit/test.html"
-		]
-	},
-	"main/fruit/test.html": {
-		"resources": [
-			"common/jquery.js",
-			"common/mui.js",
-			"common/av.js",
-			"main/fruit/hello.txt"
-		],
-		"refer": []
-	},
-	"main/fruit/db.html": {
-		"resources": [
-			"common/jquery.js",
-			"common/mui.js",
-			"common/av.js"
-		]
-	}
+  "index.html": {
+    "resources": [
+      "common/mui.js",
+      "common/mui.css"
+    ],
+    "refer": [
+      "loading/loading.html",
+      "login/login.html"
+    ]
+  },
+  "login/login.html": {
+    "resources": [
+      "login/login.js",
+      "common/fonts/mui.ttf",
+      "login/login.css",
+      "login/av.js",
+      "common/mui.js",
+      "common/mui.css",
+      "common/av.js"
+    ],
+    "refer": [
+      "index/index.html"
+    ]
+  },
+  "loading/loading.html": {
+    "refer": [
+      "login/login.html"
+    ],
+    "resources": []
+  },
+  "main/location/location.html": {
+    "resources": [
+      "main/location/location.js",
+      "common/mui.js",
+      "common/mui.css"
+    ],
+    "refer": [
+      "main/location/webview.html"
+    ]
+  },
+  "main/main.html": {
+    "resources": [
+      "img/1.png",
+      "common/fonts/mui.ttf",
+      "common/mui.js",
+      "common/mui.css",
+      "main/main.css",
+      "main/main.js",
+      "img/load1.png",
+      "img/0.jpg",
+      "common/fonts/iconfont.ttf",
+      "common/iconfont.css",
+      "main/setting/img/logo.png",
+      "img/as.png"
+    ],
+    "refer": [
+      "main/location/location.html",
+      "main/fruit/fruit.html",
+      "main/setting/setting.html",
+      "main/fruit/fruit-header.html",
+      "main/location/webview.html",
+      "main/webview.html"
+    ]
+  },
+  "index/index.html": {
+    "resources": [
+      "index/index.js",
+      "main/main.html",
+      "common/fonts/mui.ttf",
+      "common/mui.js",
+      "common/mui.css",
+      "main/mainhead.html",
+      "list/list.html"
+    ],
+    "refer": [
+      "list/list.html",
+      "main/main.html",
+      "main/mainhead.html",
+      "loading/loginedLoad.html"
+    ]
+  },
+  "main/fruit/fruit.html": {
+    "resources": [
+      "img/s2.jpg",
+      "main/fruit/fruit.css",
+      "img/s1.jpg",
+      "img/s3.jpg",
+      "img/s0.jpeg",
+      "main/fruit/fruit.js",
+      "common/fonts/mui.ttf",
+      "common/mui.js",
+      "common/mui.css",
+      "common/av.js"
+    ],
+    "refer": [
+      "main/fruit/show/show.html",
+      "main/fruit/SailDetail/SailDetailHeader.html"
+    ]
+  },
+  "main/fruit/show/show.html": {
+    "resources": [
+      "common/fonts/mui.ttf",
+      "common/mui.js",
+      "common/mui.css",
+      "main/fruit/show/show.js"
+    ],
+    "refer": []
+  },
+  "list/list.html": {
+    "resources": [
+      "common/fonts/mui.ttf",
+      "common/mui.js",
+      "common/mui.css",
+      "img/9.jpg",
+      "img/0.jpg",
+      "list/list.js",
+      "common/jquery.js"
+    ],
+    "refer": []
+  },
+  "main/setting/setting.html": {
+    "resources": [
+      "main/setting/js/mui.view.js",
+      "main/setting/css/feedback.css",
+      "main/setting/js/feedback.js",
+      "common/mui.css",
+      "common/fonts/mui.ttf",
+      "common/mui.js",
+      "main/setting/img/logo.png"
+    ],
+    "refer": []
+  },
+  "main/mainhead.html": {
+    "resources": [
+      "common/mui.js",
+      "common/mui.css"
+    ],
+    "refer": []
+  },
+  "main/fruit/fruit-header.html": {
+    "resources": [
+      "common/fonts/mui.ttf",
+      "common/mui.js",
+      "common/mui.css",
+      "main/fruit/fruit.html"
+    ],
+    "refer": [
+      "main/fruit/fruit.html"
+    ]
+  },
+  "main/location/webview.html": {
+    "resources": [
+      "common/mui.js",
+      "common/mui.css"
+    ],
+    "refer": []
+  },
+  "main/webview.html": {
+    "resources": [
+      "common/mui.js",
+      "common/mui.css",
+      "main/fruit/fruit.html",
+      "img/load1.png",
+      "main/main.js",
+      "img/load.png",
+      "common/fonts/mui.ttf",
+      "common/jquery.js"
+    ],
+    "refer": [
+      "main/main.html",
+      "main/setting/setting.html",
+      "login/login.html"
+    ]
+  },
+  "main/fruit/SailDetail/SailDetailHeader.html": {
+    "resources": [
+      "common/fonts/mui.ttf",
+      "common/mui.js",
+      "main/fruit/SailDetail/SailDetail.html",
+      "common/mui.css",
+      "main/fruit/SailDetail/foodMenu/foodMenu.html",
+      "main/fruit/SailDetail/appraise/appraise.html"
+    ],
+    "refer": [
+      "main/fruit/SailDetail/SailDetail.html",
+      "main/fruit/SailDetail/foodMenu/foodMenu.html",
+      "main/fruit/SailDetail/appraise/appraise.html"
+    ]
+  },
+  "main/fruit/SailDetail/SailDetail.html": {
+    "resources": [
+      "common/fonts/mui.ttf",
+      "common/mui.js",
+      "common/mui.css",
+      "main/fruit/SailDetail/SailDetail.js"
+    ],
+    "refer": [
+      "main/fruit/SailDetail/appraise/appraise.html"
+    ]
+  },
+  "main/fruit/SailDetail/appraise/appraise.html": {
+    "resources": [
+      "common/fonts/mui.ttf",
+      "common/mui.js",
+      "common/mui.css",
+      "img/load.png"
+    ],
+    "refer": []
+  },
+  "main/fruit/SailDetail/foodMenu/foodMenu.html": {
+    "resources": [
+      "common/fonts/mui.ttf",
+      "common/mui.js",
+      "common/mui.css",
+      "img/s3.jpg",
+      "common/jquery.js",
+      "main/fruit/SailDetail/foodMenu/foodMenu.js"
+    ],
+    "refer": [
+      "main/fruit/test.html"
+    ]
+  },
+  "main/fruit/test.html": {
+    "resources": [
+      "common/jquery.js",
+      "common/mui.js",
+      "common/av.js",
+      "main/fruit/hello.txt"
+    ],
+    "refer": []
+  },
+  "main/fruit/db.html": {
+    "resources": [
+      "common/jquery.js",
+      "common/mui.js",
+      "common/av.js"
+    ]
+  },
+  "loading/loginedLoad.html": {
+    "resources": [
+      "img/6.png",
+      "common/mui.js",
+      "img/load.png",
+      "img/load.jpg"
+    ]
+  }
 }

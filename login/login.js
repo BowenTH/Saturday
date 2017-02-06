@@ -1,5 +1,5 @@
 mui.init();
-
+mui.plusReady();
 
 //var User=AV.Object.extend('_User');
 //var user=new User();
@@ -76,32 +76,24 @@ document.getElementById('check-login').addEventListener('tap',function(){
 			//alert('succes');
 			//记住账号密码
 			mui.toast('登录成功');
-			mui.later(function(){
-//				mui.openWindow('../index/index.html')
-				mui.openWindow({
-				url:'../index/index.html',
-				id:'index.html',
-				styles: {
-	                    top: 10,
-	                    bottom: 10
-	                },
-		})
-			},1000);
+			mui.fire(plus.webview.getWebviewById('webview.html'),'loginInfo');
+			plus.webview.getLaunchWebview().show('slide-in-left',500);
+			plus.webview.getLaunchWebview().setStyle({mask:'none'});
+//			plus.webview.getLaunchWebview('')
+//				mui.openWindow({
+//				url:'../index/index.html',
+//				id:'index.html',
+//				styles: {
+//	                    top: 10,
+//	                    bottom: 10
+//	                },
+//		})
+//			},1000);
 		},
 		error:function(error){
 			mui.toast('账户或是密码输入有误');
 		}
 	})
-	if (accentInput.value==='admin'&&passwdInput.value==='123') {
-		
-		mui.openWindow({
-			url:'../index/index.html',
-			styles: {
-                    top: 10,
-                    bottom: 10
-                },
-		})
-	}
 })
 
 
@@ -132,17 +124,13 @@ document.getElementById('check-regist').addEventListener('tap',function(){
 			localStorage.setItem('sessionToken',resp.sessionToken);
 			localStorage.setItem('username',resp.username);
 			mui.toast('注册成功');
-			mui.later(function(){
-				mui.openWindow('../index/index.html')
-			},1000);
+			mui.fire(plus.webview.getWebviewById('webview.html'),'regInfo');
+			plus.webview.getLaunchWebview().show('slide-in-left',500);
+			plus.webview.getLaunchWebview().setStyle({mask:'none'});
 		},
 		error:function(error){
 			mui.toast('账户或是密码输入有误');
-			alert(accentInput.value+passwdInput.value);
-			
+			alert(accentInput.value+passwdInput.value);			
 		}
 	});
-	if (accentInput.value==='admin'&&passwdInput.value==='123') {
-		mui.openWindow('../index/index.html')
-	}
 })

@@ -96,6 +96,9 @@
 		document.getElementById('location').addEventListener('tap',function(){
 			plus.webview.getWebviewById('location.html').show('slide-in-left',400);
 		});
+		document.getElementById('supperMark').addEventListener('tap',function(){
+	mui.alert('暂未开通，敬请关注','温馨提示');
+});
 	});
 	mui.init({preloadPages:[{
 				url:'fruit/fruit-header.html',

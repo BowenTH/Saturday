@@ -11,7 +11,7 @@
 		<template id="temp_check">
 			<li class="mui-table-view-cell mui-media">
 		        <a href="javascript:;">
-		            <img class="mui-media-object mui-pull-left" src="../img/0.jpg">
+		            <img class="mui-media-object mui-pull-left" src="../img/0.jpg"/>
 		            <div class="mui-media-body">
 		                幸福
 		                <p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
@@ -43,12 +43,12 @@
 		<ul class="mui-table-view">
 		        <li class="mui-table-view-cell">
 		            <a class="mui-navigate-right">
-		                Item 1
+		                韩食馆
 		            </a>
 		        </li>
 		        <li class="mui-table-view-cell">
 		            <a class="mui-navigate-right">
-		                 Item 2
+		                 川菜馆
 		            </a>
 		        </li>
 		  </ul>
@@ -67,10 +67,6 @@
 					}
 				}
 			});
-//			function pulldownRefresh(){
-//				mui.toast('refresh success');
-//			}
-
 			function pulldownRefresh() {
 				setTimeout(function() {
 					var table = document.body.querySelector('.mui-table-view');
@@ -86,24 +82,24 @@
 					//refresh checklist
 				
 			var db = openDatabase('testDB', '1.0', 'Test DB', 2 * 1024 * 1024);
-				 	db.transaction(function (context) {
-			        context.executeSql('SELECT * FROM LshopData', [], function (context, results) {
-				    var len = results.rows.length, i;
-				    
-				       for (i = 0; i < len; i++){
-				       	var shopData=JSON.parse(results.rows.item(i).message);
-				       	mui.toast(results.rows.item(i).message);
-				       }
-			
+		 	db.transaction(function (context) {
+	        context.executeSql('SELECT * FROM LshopData', [], function (context, results) {
+		    var len = results.rows.length, i;
+//		    alert(len+':'+results.rows.item(0).message);
+            for (i = 0; i < len; i++){
+//				var shopData=JSON.parse(results.rows.item(i).message);
+		       	mui.toast(results.rows.item(i).message);
+		    }
+	
 			var li = document.createElement('li');//add li
 			var dialog=document.querySelector('#temp_check');  
-			dialog.content.querySelector('.mui-ellipsis').innerHTML=JSON.stringify(shopData.data);
+//			dialog.content.querySelector('.mui-ellipsis').innerHTML=JSON.stringify(shopData.data);
 			var fdUL= document.body.querySelector('#fdUL');
 			fdUL.appendChild(dialog.content.cloneNode(true));
 				});
 			});					
 			}, 1500);
-			}
+		}
 			var count = 0;
 			/**
 			 * 上拉加载具体业务实现
@@ -122,18 +118,6 @@
 					}
 				}, 1000);
 			}
-//			if (mui.os.plus) {
-//				mui.plusReady(function() {
-//					setTimeout(function() {
-//						mui('#pullrefresh').pullRefresh().pullupLoading();
-//					}, 500);
-//
-//				});
-//			} else {
-//				mui.ready(function() {
-//					mui('#pullrefresh').pullRefresh().pullupLoading();
-//				});
-//			}
 		</script>
 	<script src="list.js" type="text/javascript" charset="utf-8"></script>
 	</body>

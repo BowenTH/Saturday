@@ -3,16 +3,26 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		<style type="text/css">
+			*{
+				margin: 10px;
+			}
+		</style>
 		<link rel="stylesheet" type="text/css" href="../../common/mui.css"/>
 		<script src="../../common/mui.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
-		<button type="button" id="loationbt" class="mui-btn mui-btn-blue mui-btn-block">定位当前位置</button>
-		
-		<div id="allmap">
-			地图加载中 ^-^
+		<div class="mui-content" style="margin: 20px;">
+			测试当前位置
 		</div>
-		<button id='winLL' type="button" class="mui-btn mui-btn-red mui-btn-outlined">窗口遮罩</button>
+		<button style="margin-left: 10px;" type="button" id="loationbt" class="mui-btn mui-btn-green mui-btn-outlined">定位当前位置</button>
+		<br />
+		<div id="allmap">
+			点击按钮可定位
+		</div>
+		<div id="local">
+			
+		</div>
 		<script src="location.js" type="text/javascript" charset="utf-8"></script>
 		
 		

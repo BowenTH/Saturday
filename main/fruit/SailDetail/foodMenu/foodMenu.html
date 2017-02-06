@@ -230,19 +230,19 @@
 		}
 		InitHheight();
 //		var height=$('#2').offset().top;//固定的高度
-		$(window).scroll(function(){
-			var $me=$(this); 
-//			var fixheight=$(this).height();//滚动条的高度
-			for (var j=0;j<hList.length;j++) {
-				if($me.scrollTop()==hList[j]){
-					$('#left-side ul:eq('+j+')').css({'color':'red','background':'white'});
-					for(var t=0;t<hList.length;t++){
-						if(t!=j){
-							$('#left-side ul:eq('+t+')').css({'color':'black','background':'#efeff4'});
-						}
-					}
-				}
-			}
+//		$(window).scroll(function(){
+//			var $me=$(this); 
+////			var fixheight=$(this).height();//滚动条的高度
+//			for (var j=0;j<hList.length;j++) {
+//				if($me.scrollTop()==hList[j]){
+//					$('#left-side ul:eq('+j+')').css({'color':'red','background':'white'});
+//					for(var t=0;t<hList.length;t++){
+//						if(t!=j){
+//							$('#left-side ul:eq('+t+')').css({'color':'black','background':'#efeff4'});
+//						}
+//					}
+//				}
+//			}
 //					if($me.scrollTop()==height-3){
 //						console.log($me.scrollTop()+':'+$me.height()+":"+height);
 //						console.log($('#2').scrollTop());
@@ -253,7 +253,7 @@
 //						$('#left-side ul:eq(0)').css({'color':'red','background':'white'});
 //						$('#left-side ul:eq(1)').css({'color':'black','background':'#efeff4'});
 //					}
-		});
+//		});
 		</script>
 	</body>
 </html>

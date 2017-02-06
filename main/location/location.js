@@ -13,9 +13,12 @@ function displayLocation(position){
 	 myDiv.innerHTML="You are at Latitude:"+latitude+"Longitude:"+longitude;
 	 myDiv.innerHTML += "(定位于"+option.timeout/1000+"秒内)";
 	 mui.toast('定位成功');
-	 alert('当前距离:'+getDisance(31.022031,121.442132,latitude,longitude)+'米');	
+	 document.getElementById('local').innerHTML='当前距离:'+getDisance(31.022031,121.442132,latitude,longitude)+'米';
 	 //获取具体位置
-	 alert(position.addresses);
+	 mui.later(function(){
+	 	if(position.address)
+	 	document.getElementById('local').innerHTML='当前距离:'+getDisance(31.022031,121.442132,latitude,longitude)+'米'+'<br/>'+position.addresses;
+	 },3000);
 //	 var shopPosition={
 //	 	La:latitude,
 //	 	Lo:longitude,

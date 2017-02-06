@@ -75,7 +75,7 @@
 				<img id="movebackground" src="../img/load.png"style="z-index: 100;"/>
 				<div id=""style="position: absolute;top: 50px;">
 					<img src="../img/load1.png" style="width: 60px;height: 60px; border-radius: 50%;"/>
-					<span id="">NAT</span>
+					<span id="Logo">administration</span>
 				</div>				
 			</div>			
 			<ul >
@@ -185,13 +185,32 @@
 			}
 			case 'login':{
 				if($(this).text()=='登录'){
+					plus.webview.create('../login/login.html','login.html');
+					plus.webview.getWebviewById('login.html').show('slide-in-left',500);
+					localStorage.setItem('loginMain','true');
+//					$('#Logo').text(localStorage.getItem('username'));
 					$(this).text('注销');
 				}else{
-					$(this).text('登录');
+					var $login=$(this);
+					mui.confirm('是否确认注销','注销',function(e){
+						if(e.index==1){
+							localStorage.setItem('username','');
+							$('#Logo').text('administration');
+							$login.text('登录');
+							plus.webview.currentWebview().hide();
+							plus.webview.getLaunchWebview().setStyle({mask:'none'});
+						}
+					})
 				}
 				break;
 			}
 		}
+	});
+	window.addEventListener('loginInfo',function(){		
+		$('#Logo').text(localStorage.getItem('username'));
+	});
+	window.addEventListener('regInfo',function(){		
+		$('#Logo').text(localStorage.getItem('username'));
 	});
 	</script>
 </html>

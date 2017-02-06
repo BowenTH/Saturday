@@ -1,7 +1,5 @@
 
-document.getElementById('supperMark').addEventListener('tap',function(){
-	mui.alert('暂未开通，敬请关注','温馨提示');
-});
+
 /*显示或是关闭侧滑栏*/
 //document.getElementById('closList').addEventListener('tap',function(){
 //	mui('.mui-off-canvas-wrap').offCanvas().toggle();
@@ -12,9 +10,6 @@ function setting(){
 		url:'setting/setting.html',
 	})
 }
-//document.getElementById('sign').addEventListener('tap',setting);
-//document.getElementById('setting').addEventListener('tap',setting);
-//document.getElementById('checkUp').addEventListener('tap',upDating);
 
 var checkUrl="http://demo.dcloud.net.cn/test/update/check.php";
 function upDating(){
